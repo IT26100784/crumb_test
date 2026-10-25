@@ -144,9 +144,8 @@ const Crumb = {
      */
     initTheme() {
         const savedTheme = localStorage.getItem('crumb_theme');
-        const systemPrefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-        
-        const activeTheme = savedTheme || (systemPrefersDark ? 'dark' : 'light');
+        // Default to dark luxury artisan bakery theme matching brand aesthetic
+        const activeTheme = savedTheme || 'dark';
         document.documentElement.setAttribute('data-theme', activeTheme);
         this.updateThemeIcons(activeTheme);
 

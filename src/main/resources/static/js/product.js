@@ -37,6 +37,17 @@ const ProductCatalog = {
             });
         });
 
+        // Navigation links that filter categories (e.g. - Our Bread -, - Sweet Treats -)
+        document.querySelectorAll('a[data-category-filter]').forEach(navLink => {
+            navLink.addEventListener('click', () => {
+                const targetCat = navLink.dataset.categoryFilter;
+                const matchingChip = document.querySelector(`.category-chip[data-category="${targetCat}"]`);
+                if (matchingChip) {
+                    matchingChip.click();
+                }
+            });
+        });
+
         // Search input with debounce
         const searchInput = document.getElementById('catalog-search-input');
         if (searchInput) {

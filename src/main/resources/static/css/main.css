@@ -102,14 +102,14 @@ img {
     transform: translateY(0);
 }
 .btn-primary {
-    background: linear-gradient(135deg, var(--color-primary), var(--color-primary-light));
+    background: linear-gradient(135deg, var(--color-accent), var(--color-accent-dark));
     color: #FFFFFF !important;
 }
 .btn-primary:hover {
-    background: linear-gradient(135deg, var(--color-primary-dark), var(--color-primary));
+    background: linear-gradient(135deg, var(--color-accent-hover), var(--color-accent));
 }
 .btn-accent {
-    background: linear-gradient(135deg, var(--color-accent), #EAA34E);
+    background: linear-gradient(135deg, var(--color-accent), #E59F64);
     color: #FFFFFF !important;
 }
 .btn-accent:hover {
@@ -117,12 +117,13 @@ img {
 }
 .btn-outline {
     background: transparent;
-    border-color: var(--color-primary);
-    color: var(--color-primary) !important;
+    border-color: rgba(255, 255, 255, 0.28);
+    color: #FFFFFF !important;
 }
 .btn-outline:hover {
-    background: var(--color-primary);
-    color: #FFFFFF !important;
+    background: rgba(255, 255, 255, 0.08);
+    border-color: var(--color-accent);
+    color: var(--color-accent) !important;
 }
 .btn-outline-accent {
     background: transparent;

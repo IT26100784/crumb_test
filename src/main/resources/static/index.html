@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Crumb | Artisan Bakery & Bespoke Custom Cakes</title>
-    <meta name="description" content="Crumb is an artisan bakery crafting fresh wild-yeast sourdoughs, delicate French pastries, and bespoke multi-tier celebration cakes.">
+    <title>Crumb &amp; Co. | Artisan Bakery &amp; Bespoke Custom Cakes</title>
+    <meta name="description" content="Crumb &amp; Co. is an artisan bakery crafting fresh wild-yeast sourdoughs, delicate French pastries, and bespoke celebration cakes in New York.">
     
-    <!-- Google Fonts: Playfair Display & Plus Jakarta Sans -->
+    <!-- Google Fonts: Playfair Display, Alex Brush & Plus Jakarta Sans -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
@@ -21,9 +21,16 @@
 </head>
 <body>
 
-    <!-- Top Announcement Bar -->
-    <div class="announcement-bar">
-        <span>✨ Fresh Morning Bakes Out of the Oven!</span> Free white-glove delivery on all orders for <span>VIP Gold Members</span>.
+    <!-- Top Utility Bar (Promo & Catering Hotline Matching Reference) -->
+    <div class="top-utility-bar">
+        <div class="container top-utility-container">
+            <div class="top-utility-promo">
+                <span>Subscribe to get 20% off your first order.</span>
+            </div>
+            <div class="top-utility-contact">
+                <span>Catering: <a href="tel:+12345678901">+1 (234) 567 89 01</a></span>
+            </div>
+        </div>
     </div>
 
     <!-- Sticky Glass Header / Navbar -->
@@ -31,22 +38,28 @@
         <div class="container nav-container">
             <!-- Brand Logo -->
             <a href="#home" class="brand-logo">
-                <i class="fa-solid fa-cake-candles brand-icon"></i>
-                <div class="brand-text">Crumb<span>.</span></div>
+                <div class="brand-text">Crumb &amp; Co<span class="brand-dot">.</span></div>
             </a>
 
-            <!-- Navigation Links -->
+            <!-- Navigation Links (Dashed Style Matching Reference) -->
             <ul class="nav-links">
-                <li><a href="#home" class="nav-link active">Home</a></li>
-                <li><a href="#catalog" class="nav-link">Menu Catalog</a></li>
-                <li><a href="#cake-builder" class="nav-link">Custom Cake Builder</a></li>
-                <li><a href="#tracking" class="nav-link">Track Order</a></li>
-                <li><a href="#testimonials" class="nav-link">Stories</a></li>
-                <li><a href="#about" class="nav-link">About Us</a></li>
+                <li><a href="#catalog" class="nav-link" data-category-filter="BREAD">- Our Bread -</a></li>
+                <li><a href="#catalog" class="nav-link" data-category-filter="PASTRY">- Sweet Treats -</a></li>
+                <li><a href="#cake-builder" class="nav-link">- Custom Cakes -</a></li>
+                <li><a href="#about" class="nav-link">- Our Story -</a></li>
+                <li><a href="#tracking" class="nav-link">- Track Order -</a></li>
+                <li><a href="#contacts" class="nav-link">- Contacts -</a></li>
             </ul>
 
-            <!-- Navigation Actions -->
+            <!-- Navigation Actions & Socials -->
             <div class="nav-actions">
+                <!-- Social Media Icons (FB, IG, YouTube Matching Reference) -->
+                <div class="social-nav-links">
+                    <a href="https://facebook.com" target="_blank" rel="noopener" class="social-nav-link" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="https://instagram.com" target="_blank" rel="noopener" class="social-nav-link" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="https://youtube.com" target="_blank" rel="noopener" class="social-nav-link" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+                </div>
+
                 <!-- Theme Toggle Button (Dark / Light) -->
                 <button class="theme-toggle-btn" title="Toggle Dark/Light Mode" aria-label="Toggle theme">
                     <i class="fa-solid fa-moon"></i>
@@ -89,81 +102,89 @@
         </div>
     </header>
 
-    <!-- Hero Section -->
+    <!-- Hero Section Matching Reference Image -->
     <section class="hero-section" id="home">
-        <div class="container hero-grid">
-            <div class="hero-content reveal">
-                <div class="hero-pill">
-                    <i class="fa-solid fa-wheat-awn"></i> 100% Organic Butter & Wild Yeast Sourdough
-                </div>
-                <h1 class="hero-title">
-                    Artisan Baking, Crafted for Life's <span class="highlight">Sweetest Moments</span>
-                </h1>
-                <p class="hero-description">
-                    From 36-hour cold-fermented country sourdoughs and golden buttery viennoiserie to bespoke multi-tier celebration cakes designed entirely by you.
-                </p>
-                <div class="hero-cta-group">
-                    <a href="#catalog" class="btn btn-primary btn-lg">
-                        <i class="fa-solid fa-utensils"></i> Explore Menu
-                    </a>
-                    <a href="#cake-builder" class="btn btn-accent btn-lg">
-                        <i class="fa-solid fa-wand-magic-sparkles"></i> Build Custom Cake
-                    </a>
-                    <a href="#tracking" class="btn btn-outline btn-lg">
-                        <i class="fa-solid fa-location-dot"></i> Track Order
-                    </a>
-                </div>
-                <div class="hero-stats">
-                    <div class="stat-item">
-                        <span class="stat-number">15+</span>
-                        <span class="stat-label">Pastry Artisans</span>
-                    </div>
-                    <div class="stat-item">
-                        <span class="stat-number">5,000+</span>
-                        <span class="stat-label">Delighted Foodies</span>
-                    </div>
-                    <div class="stat-item">
-                        <span class="stat-number">4.9 ★</span>
-                        <span class="stat-label">Community Rating</span>
-                    </div>
-                </div>
-            </div>
+        <div class="container hero-container">
+            <div class="hero-grid">
+                <div class="hero-content reveal">
+                    <!-- Script Cursive Flourish -->
+                    <div class="hero-script-eyebrow">Crumb &amp; Co.</div>
+                    
+                    <h1 class="hero-headline">
+                        Welcome to Our<br>
+                        Artisan Bakery<span class="hero-dot">.</span>
+                    </h1>
+                    
+                    <p class="hero-subtext">
+                        We are based in New York and bake fresh bread and pastry every day.
+                    </p>
 
-            <div class="hero-image-card reveal">
-                <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=1000&auto=format&fit=crop&q=80" alt="Belgian Chocolate Cake">
-                <div class="hero-floating-tag">
-                    <i class="fa-solid fa-crown tag-icon"></i>
-                    <div class="tag-text">
-                        <h5>Signature Belgian Ganache</h5>
-                        <p>Triple layer dark chocolate truffle</p>
+                    <div class="hero-cta-group">
+                        <a href="#catalog" class="btn btn-primary btn-lg">
+                            <i class="fa-solid fa-wheat-awn"></i> Order Fresh Bakes
+                        </a>
+                        <a href="#cake-builder" class="btn btn-outline btn-lg">
+                            <i class="fa-solid fa-wand-magic-sparkles"></i> Design Custom Cake
+                        </a>
+                    </div>
+
+                    <!-- 3 Location Pins from Reference Screenshot -->
+                    <div class="hero-locations-bar">
+                        <div class="hero-location-item">
+                            <i class="fa-solid fa-location-dot location-icon"></i>
+                            <span>2260 Pacific St, Brooklyn, NY 11233</span>
+                        </div>
+                        <div class="hero-location-item">
+                            <i class="fa-solid fa-location-dot location-icon"></i>
+                            <span>1395 Lexington Ave, New York, NY 10128</span>
+                        </div>
+                        <div class="hero-location-item">
+                            <i class="fa-solid fa-location-dot location-icon"></i>
+                            <span>467 W 144th St, New York, NY 10031</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Visual: Baker with rustic sourdough -->
+                <div class="hero-visual reveal">
+                    <div class="hero-baker-wrapper">
+                        <img src="/images/hero-baker.jpg" alt="Crumb &amp; Co. Artisan Baker holding sourdough loaf" class="hero-baker-img">
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Value Highlights Section -->
-    <section class="features-section">
-        <div class="container features-grid">
-            <div class="feature-card reveal">
-                <div class="feature-icon"><i class="fa-solid fa-seedling"></i></div>
-                <h4>Crafted From Scratch</h4>
-                <p>Pure French butter, Valrhona cocoa, and locally milled non-GMO heritage flours.</p>
+    <!-- Value Highlights / About Section Matching Reference -->
+    <section class="features-section" id="about">
+        <div class="container">
+            <div class="section-header reveal">
+                <div class="section-script-eyebrow">About us</div>
+                <h2 class="section-title">Crafting Delicious Memories Every Day</h2>
+                <p>We honor the time-tested tradition of slow fermentation, wild sourdough starters, and pure heritage flours milled locally.</p>
             </div>
-            <div class="feature-card reveal">
-                <div class="feature-icon"><i class="fa-solid fa-clock"></i></div>
-                <h4>36-Hour Fermentation</h4>
-                <p>Naturally leavened wild sourdough loaves packed with complex flavor and gut vitality.</p>
-            </div>
-            <div class="feature-card reveal">
-                <div class="feature-icon"><i class="fa-solid fa-cake-candles"></i></div>
-                <h4>Bespoke Custom Cakes</h4>
-                <p>Design your dream birthday or wedding masterpiece with our interactive 3D builder.</p>
-            </div>
-            <div class="feature-card reveal">
-                <div class="feature-icon"><i class="fa-solid fa-truck-fast"></i></div>
-                <h4>Chilled White-Glove Delivery</h4>
-                <p>Temperature-controlled doorstep dispatch guaranteed to arrive bakery-fresh.</p>
+
+            <div class="features-grid">
+                <div class="feature-card reveal">
+                    <div class="feature-icon"><i class="fa-solid fa-seedling"></i></div>
+                    <h4>Crafted From Scratch</h4>
+                    <p>Pure French butter, Valrhona cocoa, and locally milled non-GMO heritage flours.</p>
+                </div>
+                <div class="feature-card reveal">
+                    <div class="feature-icon"><i class="fa-solid fa-clock"></i></div>
+                    <h4>36-Hour Fermentation</h4>
+                    <p>Naturally leavened wild sourdough loaves packed with complex flavor and gut vitality.</p>
+                </div>
+                <div class="feature-card reveal">
+                    <div class="feature-icon"><i class="fa-solid fa-cake-candles"></i></div>
+                    <h4>Bespoke Custom Cakes</h4>
+                    <p>Design your dream birthday or wedding masterpiece with our interactive 3D builder.</p>
+                </div>
+                <div class="feature-card reveal">
+                    <div class="feature-icon"><i class="fa-solid fa-truck-fast"></i></div>
+                    <h4>Chilled White-Glove Delivery</h4>
+                    <p>Temperature-controlled doorstep dispatch guaranteed to arrive bakery-fresh.</p>
+                </div>
             </div>
         </div>
     </section>
@@ -172,7 +193,7 @@
     <section class="catalog-section" id="catalog">
         <div class="container">
             <div class="section-header reveal">
-                <div class="section-subtitle">Our Fresh Daily Bakes</div>
+                <div class="section-script-eyebrow">Our Menu</div>
                 <h2 class="section-title">Explore the Artisan Menu</h2>
                 <p>Baked in small batches every morning at dawn. Choose from decadent dessert cakes, flaky French viennoiserie, or crusty artisan hearth breads.</p>
             </div>
@@ -211,7 +232,7 @@
     <section class="cake-builder-section" id="cake-builder">
         <div class="container">
             <div class="section-header reveal">
-                <div class="section-subtitle">Interactive Studio</div>
+                <div class="section-script-eyebrow">Interactive Studio</div>
                 <h2 class="section-title">Design Your Bespoke Celebration Cake</h2>
                 <p>Customize every detail of your centerpiece. Our pastry chefs bring your creative vision to life with artisanal precision.</p>
             </div>
@@ -341,7 +362,7 @@
     <section class="tracking-section" id="tracking">
         <div class="container">
             <div class="section-header reveal">
-                <div class="section-subtitle">Real-Time Kitchen Radar</div>
+                <div class="section-script-eyebrow">Kitchen Radar</div>
                 <h2 class="section-title">Track Your Bakery Order</h2>
                 <p>Follow your treats every step of the journey, from flour weighing and oven baking to doorstep delivery.</p>
             </div>
@@ -365,7 +386,7 @@
     <section class="testimonials-section" id="testimonials">
         <div class="container">
             <div class="section-header reveal">
-                <div class="section-subtitle">Real Foodie Stories</div>
+                <div class="section-script-eyebrow">Community Voices</div>
                 <h2 class="section-title">Loved by Our Community</h2>
                 <p>Read genuine reviews from local dessert lovers and party hosts.</p>
                 <div style="margin-top: 1.25rem;">
@@ -411,20 +432,18 @@
     </section>
 
     <!-- Footer -->
-    <footer class="footer">
+    <footer class="footer" id="contacts">
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-col">
                     <div class="brand-logo" style="margin-bottom: 1rem;">
-                        <i class="fa-solid fa-cake-candles brand-icon"></i>
-                        <span class="brand-text" style="color: #FFFFFF;">Crumb<span>.</span></span>
+                        <span class="brand-text" style="color: #FFFFFF;">Crumb &amp; Co<span style="color: var(--color-accent);">.</span></span>
                     </div>
-                    <p>Artisan bakery delivering hand-crafted sourdoughs, viennoiserie, and bespoke custom celebration cakes.</p>
+                    <p>Artisan bakery crafting wild-yeast sourdoughs, classic French viennoiserie, and bespoke custom celebration cakes across New York.</p>
                     <div style="display: flex; gap: 0.85rem; margin-top: 1.25rem;">
-                        <a href="#" style="color: #D4C3B7; font-size: 1.2rem;"><i class="fa-brands fa-instagram"></i></a>
-                        <a href="#" style="color: #D4C3B7; font-size: 1.2rem;"><i class="fa-brands fa-facebook"></i></a>
-                        <a href="#" style="color: #D4C3B7; font-size: 1.2rem;"><i class="fa-brands fa-tiktok"></i></a>
-                        <a href="#" style="color: #D4C3B7; font-size: 1.2rem;"><i class="fa-brands fa-pinterest"></i></a>
+                        <a href="https://instagram.com" target="_blank" rel="noopener" style="color: #D4C3B7; font-size: 1.2rem;"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="https://facebook.com" target="_blank" rel="noopener" style="color: #D4C3B7; font-size: 1.2rem;"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="https://youtube.com" target="_blank" rel="noopener" style="color: #D4C3B7; font-size: 1.2rem;"><i class="fa-brands fa-youtube"></i></a>
                     </div>
                 </div>
 
@@ -432,10 +451,10 @@
                     <h4>Quick Links</h4>
                     <ul class="footer-links">
                         <li><a href="#home">Home</a></li>
-                        <li><a href="#catalog">Artisan Catalog</a></li>
+                        <li><a href="#catalog">Artisan Bread &amp; Treats</a></li>
                         <li><a href="#cake-builder">Custom Cake Builder</a></li>
                         <li><a href="#tracking">Track Order Status</a></li>
-                        <li><a href="#testimonials">Customer Reviews</a></li>
+                        <li><a href="#about">Our Story</a></li>
                     </ul>
                 </div>
 
@@ -450,15 +469,17 @@
                 </div>
 
                 <div class="footer-col">
-                    <h4>Visit Our Kitchen</h4>
-                    <p><i class="fa-solid fa-location-dot" style="color: var(--color-accent);"></i> 42 Baker Street, Gourmet District</p>
-                    <p style="margin-top: 0.5rem;"><i class="fa-solid fa-phone" style="color: var(--color-accent);"></i> +94 (077) 123-4567</p>
-                    <p style="margin-top: 0.5rem;"><i class="fa-solid fa-envelope" style="color: var(--color-accent);"></i> hello@crumb.com</p>
+                    <h4>Bakery Locations</h4>
+                    <p><i class="fa-solid fa-location-dot" style="color: var(--color-accent);"></i> 2260 Pacific St, Brooklyn, NY 11233</p>
+                    <p style="margin-top: 0.4rem;"><i class="fa-solid fa-location-dot" style="color: var(--color-accent);"></i> 1395 Lexington Ave, New York, NY 10128</p>
+                    <p style="margin-top: 0.4rem;"><i class="fa-solid fa-location-dot" style="color: var(--color-accent);"></i> 467 W 144th St, New York, NY 10031</p>
+                    <p style="margin-top: 0.6rem;"><i class="fa-solid fa-phone" style="color: var(--color-accent);"></i> Catering: +1 (234) 567 89 01</p>
+                    <p style="margin-top: 0.4rem;"><i class="fa-solid fa-envelope" style="color: var(--color-accent);"></i> hello@crumb.com</p>
                 </div>
             </div>
 
             <div class="footer-bottom">
-                <div>&copy; 2026 Crumb Bakery Platform. University Project SE1020 Object Oriented Programming.</div>
+                <div>&copy; 2026 Crumb &amp; Co. Artisan Bakery Platform. University Project SE1020 Object Oriented Programming.</div>
                 <div>Designed with passion by 6 students. Powered by Spring Boot 3 &amp; MySQL.</div>
             </div>
         </div>
