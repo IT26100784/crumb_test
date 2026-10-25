@@ -377,6 +377,12 @@
     border-radius: var(--radius-xl);
     border: 1px solid var(--border-color);
     box-shadow: var(--shadow-sm);
+    position: relative;
+    z-index: 50;
+}
+.catalog-toolbar:has(.custom-select-menu.active),
+.catalog-toolbar:focus-within {
+    z-index: 150;
 }
 .category-chips {
     display: flex;
@@ -411,6 +417,8 @@
     flex: 1;
     max-width: 480px;
     justify-content: flex-end;
+    position: relative;
+    z-index: 60;
 }
 .search-input-wrapper {
     position: relative;
@@ -455,6 +463,8 @@
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
     gap: 2rem;
+    position: relative;
+    z-index: 1;
 }
 .product-card {
     background: var(--bg-surface);

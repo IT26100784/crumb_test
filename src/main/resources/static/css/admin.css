@@ -227,7 +227,7 @@
     border-radius: var(--radius-lg);
     border: 1px solid var(--border-color);
     box-shadow: var(--shadow-sm);
-    overflow: hidden;
+    overflow: visible;
     margin-bottom: 2rem;
 }
 .card-header-bar {
@@ -245,7 +245,12 @@
 }
 .table-responsive {
     width: 100%;
-    overflow-x: auto;
+    overflow: visible;
+}
+@media (max-width: 992px) {
+    .table-responsive {
+        overflow-x: auto;
+    }
 }
 .admin-table {
     width: 100%;
@@ -266,6 +271,7 @@
     border-bottom: 1px solid var(--border-subtle);
     color: var(--text-primary);
     vertical-align: middle;
+    position: relative;
 }
 .admin-table tr:hover td {
     background: rgba(212, 139, 56, 0.04);

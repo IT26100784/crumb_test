@@ -441,16 +441,18 @@ const Crumb = {
      * CUSTOM DARK LUXURY GLASS SELECT DROPDOWNS
      * =========================================================================
      */
-    initCustomSelects() {
-        document.querySelectorAll('select.form-select, select.sort-select').forEach(select => {
+    initCustomSelects(container = document) {
+        if (!container || !container.querySelectorAll) return;
+        container.querySelectorAll('select.form-select, select.sort-select, select.status-select').forEach(select => {
             if (select.dataset.customSelectAttached) return;
             select.dataset.customSelectAttached = 'true';
 
-            // Hide native select visually while keeping in DOM for form submission
+            // Hide native select visually while keeping in DOM for form submission & events
             select.style.display = 'none';
 
+            const isCompact = select.classList.contains('status-select');
             const wrapper = document.createElement('div');
-            wrapper.className = 'custom-select-wrapper';
+            wrapper.className = 'custom-select-wrapper' + (isCompact ? ' custom-select-compact' : '');
             select.parentNode.insertBefore(wrapper, select);
             wrapper.appendChild(select);
 
@@ -488,6 +490,9 @@ const Crumb = {
                         item.classList.add('active');
 
                         select.dispatchEvent(new Event('change', { bubbles: true }));
+                        if (typeof select.onchange === 'function') {
+                            select.onchange.call(select, new Event('change', { bubbles: true }));
+                        }
                         closeMenu();
                     });
                 });
@@ -503,14 +508,27 @@ const Crumb = {
                 } else {
                     document.querySelectorAll('.custom-select-menu.active').forEach(m => m.classList.remove('active'));
                     document.querySelectorAll('.custom-select-trigger.active').forEach(t => t.classList.remove('active'));
+                    document.querySelectorAll('.custom-select-wrapper.open').forEach(w => w.classList.remove('open'));
+                    
+                    // Position detection: if near bottom, open upward
+                    const rect = trigger.getBoundingClientRect();
+                    const spaceBelow = window.innerHeight - rect.bottom;
+                    if (spaceBelow < 230 && rect.top > 230) {
+                        menu.classList.add('open-upward');
+                    } else {
+                        menu.classList.remove('open-upward');
+                    }
+
                     menu.classList.add('active');
                     trigger.classList.add('active');
+                    wrapper.classList.add('open');
                 }
             };
 
             const closeMenu = () => {
                 menu.classList.remove('active');
                 trigger.classList.remove('active');
+                wrapper.classList.remove('open');
             };
 
             trigger.addEventListener('click', (e) => {
@@ -521,6 +539,17 @@ const Crumb = {
             document.addEventListener('click', (e) => {
                 if (!wrapper.contains(e.target)) {
                     closeMenu();
+                }
+            });
+
+            // Allow external sync when select.value is changed programmatically
+            select.addEventListener('refreshCustomSelect', () => {
+                const curOpt = select.options[select.selectedIndex];
+                if (curOpt) {
+                    trigger.querySelector('.custom-select-label').textContent = curOpt.text;
+                    menu.querySelectorAll('.custom-select-option').forEach(o => {
+                        o.classList.toggle('active', o.dataset.value === select.value);
+                    });
                 }
             });
         });

@@ -19,6 +19,7 @@ const AdminPortal = {
 
     async init() {
         Crumb.initTheme();
+        Crumb.initCustomSelects();
         await this.checkAdminAuth();
         this.bindEvents();
         await this.loadDashboardMetrics();
@@ -265,6 +266,8 @@ const AdminPortal = {
         if (form) form.reset();
         document.getElementById('adm-prod-id').value = '';
         document.getElementById('adm-prod-modal-title').textContent = 'Add New Bakery Product';
+        document.getElementById('adm-prod-type').value = 'CAKE';
+        document.getElementById('adm-prod-type').dispatchEvent(new Event('refreshCustomSelect'));
         this.updateProductModalFields('CAKE');
         Crumb.openModal('admin-product-modal');
     },
@@ -286,6 +289,7 @@ const AdminPortal = {
         document.getElementById('adm-prod-img').value = product.imageUrl || '';
         document.getElementById('adm-prod-allergens').value = product.allergens || '';
         document.getElementById('adm-prod-type').value = product.productType;
+        document.getElementById('adm-prod-type').dispatchEvent(new Event('refreshCustomSelect'));
         document.getElementById('adm-prod-available').checked = product.available;
 
         this.updateProductModalFields(product.productType);
@@ -410,6 +414,8 @@ const AdminPortal = {
                 </td>
             </tr>
         `).join('');
+
+        Crumb.initCustomSelects(tbody);
     },
 
     async updateOrderStatus(orderId, newStatus) {
@@ -474,6 +480,8 @@ const AdminPortal = {
                 </td>
             </tr>
         `).join('');
+
+        Crumb.initCustomSelects(tbody);
     },
 
     async updateCakeStatus(cakeId, newStatus) {
@@ -536,6 +544,8 @@ const AdminPortal = {
                 </td>
             </tr>
         `).join('');
+
+        Crumb.initCustomSelects(tbody);
     },
 
     async updateBookingStatus(id, newStatus) {

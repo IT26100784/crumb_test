@@ -107,7 +107,7 @@ window.OrderModule = {
         const cart = ProductCatalog.cart;
         container.innerHTML = cart.map(item => `
             <div style="display: flex; justify-content: space-between; align-items: center; font-size: 0.9rem; margin-bottom: 0.45rem;">
-                <span><span class="product-id-tag">#PRD-0${item.id}</span> ${item.quantity}x ${item.name}</span>
+                <span>${item.quantity}x ${item.name}</span>
                 <span style="font-weight: 700;">${Crumb.formatCurrency(item.basePrice * item.quantity)}</span>
             </div>
         `).join('');
@@ -253,7 +253,7 @@ window.OrderModule = {
         if (itemsBody && order.items) {
             itemsBody.innerHTML = order.items.map(item => `
                 <tr>
-                    <td style="padding: 6px 0;"><span class="product-id-tag" style="font-size: 0.7rem;">#PRD-0${item.productId || item.id}</span> ${item.productName}</td>
+                    <td style="padding: 6px 0;">${item.productName}</td>
                     <td style="text-align: center;">${item.quantity}</td>
                     <td style="text-align: right;">${Crumb.formatCurrency(item.subtotal)}</td>
                 </tr>
@@ -357,7 +357,7 @@ window.OrderModule = {
                     <h5 style="margin-bottom: 0.75rem;">Order Summary</h5>
                     ${order.items.map(i => `
                         <div style="display: flex; justify-content: space-between; align-items: center; font-size: 0.88rem; margin-bottom: 0.4rem;">
-                            <span><span class="product-id-tag" style="font-size: 0.7rem;">#PRD-0${i.productId || i.id}</span> ${i.quantity}x ${i.productName}</span>
+                            <span>${i.quantity}x ${i.productName}</span>
                             <span>${Crumb.formatCurrency(i.subtotal)}</span>
                         </div>
                     `).join('')}
