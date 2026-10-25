@@ -84,8 +84,8 @@ window.OrderModule = {
         const dateInput = document.getElementById('checkout-date');
 
         if (nameInput) nameInput.value = user.fullName || '';
-        if (phoneInput) phoneInput.value = user.phoneNumber || '';
-        if (addressInput) addressInput.value = user.deliveryAddress || '';
+        if (phoneInput) phoneInput.value = user.phone || user.phoneNumber || '';
+        if (addressInput) addressInput.value = user.address || user.deliveryAddress || '';
 
         // Default tomorrow
         if (dateInput) {
@@ -118,7 +118,7 @@ window.OrderModule = {
         const subtotal = cart.reduce((sum, item) => sum + (item.basePrice * item.quantity), 0);
         
         let deliveryFee = 0;
-        const isVip = Crumb.currentUser && Crumb.currentUser.tier === 'PREMIUM';
+        const isVip = Crumb.currentUser && (Crumb.currentUser.customerType === 'PREMIUM' || Crumb.currentUser.tier === 'PREMIUM');
         
         if (this.selectedFulfillment === 'DELIVERY') {
             deliveryFee = isVip ? 0.0 : 5.0; // VIP gets waived delivery fee!
@@ -162,10 +162,12 @@ window.OrderModule = {
         }
 
         const payload = {
-            fulfillmentType: this.selectedFulfillment,
+            orderType: this.selectedFulfillment,
             deliveryAddress: address,
-            customerNotes: notesInput ? notesInput.value.trim() : '',
-            deliveryDate: dateInput ? dateInput.value : '',
+            contactPhone: phoneInput ? phoneInput.value.trim() : '',
+            orderNotes: notesInput ? notesInput.value.trim() : '',
+            specialDeliveryInstructions: notesInput ? notesInput.value.trim() : '',
+            pickupTimeSlot: slotInput ? slotInput.value : '',
             items: cart.map(item => ({
                 productId: item.id,
                 quantity: item.quantity
@@ -202,7 +204,7 @@ window.OrderModule = {
 
             const paymentPayload = {
                 orderId: order.id,
-                amount: order.finalTotal,
+                amount: order.totalAmount || order.finalTotal || order.subtotal,
                 paymentType: this.selectedPaymentMethod,
                 cardHolderName: cardHolder,
                 cardLastFour: lastFour,
@@ -237,11 +239,11 @@ window.OrderModule = {
         if (!modal) return;
 
         document.getElementById('receipt-order-no').textContent = order.orderNumber;
-        document.getElementById('receipt-date').textContent = Crumb.formatDate(order.orderDate);
-        document.getElementById('receipt-customer-name').textContent = order.customerName;
-        document.getElementById('receipt-fulfillment').textContent = order.fulfillmentType;
-        document.getElementById('receipt-address').textContent = order.deliveryAddress;
-        document.getElementById('receipt-total').textContent = Crumb.formatCurrency(order.finalTotal);
+        document.getElementById('receipt-date').textContent = Crumb.formatDate(order.createdAt || order.orderDate);
+        document.getElementById('receipt-customer-name').textContent = order.customerName || 'Valued Customer';
+        document.getElementById('receipt-fulfillment').textContent = order.orderType || order.fulfillmentType || 'DELIVERY';
+        document.getElementById('receipt-address').textContent = order.deliveryAddress || 'Bakery Pickup Counter';
+        document.getElementById('receipt-total').textContent = Crumb.formatCurrency(order.totalAmount || order.finalTotal);
 
         const itemsBody = document.getElementById('receipt-items-body');
         if (itemsBody && order.items) {
@@ -296,12 +298,14 @@ window.OrderModule = {
         const currentIdx = stages.indexOf(order.status);
         const isCancelled = order.status === 'CANCELLED';
 
+        const fulfillment = order.orderType || order.fulfillmentType || 'DELIVERY';
+
         const stageTitles = {
             PENDING: 'Order Placed',
             CONFIRMED: 'Kitchen Confirmed',
             BAKING: 'Baking in Oven',
-            READY: order.fulfillmentType === 'PICKUP' ? 'Ready for Pickup' : 'Out for Delivery',
-            DELIVERED: order.fulfillmentType === 'PICKUP' ? 'Picked Up' : 'Delivered'
+            READY: fulfillment === 'PICKUP' ? 'Ready for Pickup' : 'Out for Delivery',
+            DELIVERED: fulfillment === 'PICKUP' ? 'Picked Up' : 'Delivered'
         };
 
         const progressPercent = isCancelled ? 0 : Math.max(0, (currentIdx / (stages.length - 1)) * 100);
@@ -311,7 +315,7 @@ window.OrderModule = {
                 <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border-subtle); padding-bottom: 1rem;">
                     <div>
                         <h3 style="margin-bottom: 4px;">Order #${order.orderNumber}</h3>
-                        <p style="font-size: 0.85rem;">Placed on ${Crumb.formatDate(order.orderDate)} &bull; ${order.fulfillmentType}</p>
+                        <p style="font-size: 0.85rem;">Placed on ${Crumb.formatDate(order.createdAt || order.orderDate)} &bull; ${fulfillment}</p>
                     </div>
                     <div>
                         <span class="badge ${isCancelled ? 'badge-error' : 'badge-success'}" style="font-size: 0.9rem; padding: 0.4rem 1rem;">
@@ -355,7 +359,7 @@ window.OrderModule = {
                     `).join('')}
                     <div style="border-top: 1px solid var(--border-color); padding-top: 0.6rem; margin-top: 0.6rem; display: flex; justify-content: space-between; font-weight: 800;">
                         <span>Total Paid</span>
-                        <span style="color: var(--color-primary);">${Crumb.formatCurrency(order.finalTotal)}</span>
+                        <span style="color: var(--color-primary);">${Crumb.formatCurrency(order.totalAmount || order.finalTotal)}</span>
                     </div>
                 </div>
 

@@ -17,7 +17,6 @@ const CustomCakeBuilder = {
         floralArrangement: false,
         goldLeafAccent: false,
         specialInstructions: '',
-        requiredDate: '',
         estimatedPrice: 75.0
     },
 
@@ -239,13 +238,14 @@ const CustomCakeBuilder = {
         const payload = {
             cakeType: this.state.cakeType,
             flavor: this.state.flavor,
-            tiers: this.state.tiers,
+            sizeTiers: `${this.state.tiers} Tier(s)`,
+            tierCount: this.state.tiers,
             inscription: this.state.inscription,
-            includeCandles: this.state.includeCandles,
-            floralArrangement: this.state.floralArrangement,
-            goldLeafAccent: this.state.goldLeafAccent,
+            candleSetIncluded: this.state.includeCandles,
+            freshFlorals: this.state.floralArrangement,
+            edibleGoldLeaf: this.state.goldLeafAccent,
             specialInstructions: this.state.specialInstructions,
-            requiredDate: reqDate
+            eventDate: reqDate
         };
 
         try {
@@ -259,7 +259,7 @@ const CustomCakeBuilder = {
                 this.updatePriceUI(res.data.estimatedPrice);
             }
         } catch (e) {
-            // Local fallback calculation if needed
+            // Local fallback calculation
             let base = 50.0;
             if (this.state.cakeType === 'WEDDING') base = 120.0;
             if (this.state.cakeType === 'CELEBRATION') base = 75.0;
@@ -302,13 +302,14 @@ const CustomCakeBuilder = {
         const payload = {
             cakeType: this.state.cakeType,
             flavor: this.state.flavor,
-            tiers: this.state.tiers,
+            sizeTiers: `${this.state.tiers} Tier(s)`,
+            tierCount: this.state.tiers,
             inscription: this.state.inscription,
-            includeCandles: this.state.includeCandles,
-            floralArrangement: this.state.floralArrangement,
-            goldLeafAccent: this.state.goldLeafAccent,
+            candleSetIncluded: this.state.includeCandles,
+            freshFlorals: this.state.floralArrangement,
+            edibleGoldLeaf: this.state.goldLeafAccent,
             specialInstructions: specialInstr ? specialInstr.value : '',
-            requiredDate: dateInput ? dateInput.value : ''
+            eventDate: dateInput ? dateInput.value : ''
         };
 
         const submitBtn = document.getElementById('submit-custom-cake-btn');
@@ -324,9 +325,7 @@ const CustomCakeBuilder = {
             });
 
             if (res.success && res.data) {
-                Crumb.showToast(`Custom cake booked successfully! Reference: ${res.data.referenceNumber}`, 'success');
-                
-                // Show Confirmation Modal
+                Crumb.showToast(`Custom cake booked successfully! Reference: #${res.data.id}`, 'success');
                 this.showBookingConfirmation(res.data);
             }
         } catch (error) {
@@ -343,11 +342,11 @@ const CustomCakeBuilder = {
         const modal = document.getElementById('cake-success-modal');
         if (!modal) return;
 
-        document.getElementById('cake-conf-ref').textContent = cake.referenceNumber;
-        document.getElementById('cake-conf-type').textContent = cake.cakeType;
+        document.getElementById('cake-conf-ref').textContent = cake.id ? `CAKE-#${cake.id}` : 'CAKE-CONFIRMED';
+        document.getElementById('cake-conf-type').textContent = cake.cakeType || this.state.cakeType;
         document.getElementById('cake-conf-flavor').textContent = cake.flavor;
-        document.getElementById('cake-conf-tiers').textContent = `${cake.tiers} Tier(s)`;
-        document.getElementById('cake-conf-date').textContent = Crumb.formatDate(cake.requiredDate);
+        document.getElementById('cake-conf-tiers').textContent = cake.sizeTiers || `${this.state.tiers} Tier(s)`;
+        document.getElementById('cake-conf-date').textContent = Crumb.formatDate(cake.eventDate);
         document.getElementById('cake-conf-price').textContent = Crumb.formatCurrency(cake.estimatedPrice);
 
         Crumb.openModal('cake-success-modal');

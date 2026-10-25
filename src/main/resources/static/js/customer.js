@@ -120,10 +120,10 @@ const CustomerAuth = {
 
         // Set user name and badges
         document.querySelectorAll('.user-display-name').forEach(el => {
-            el.textContent = user.fullName.split(' ')[0];
+            el.textContent = user.fullName ? user.fullName.split(' ')[0] : 'Foodie';
         });
 
-        const isVip = user.tier === 'PREMIUM';
+        const isVip = (user.customerType === 'PREMIUM' || user.tier === 'PREMIUM');
         document.querySelectorAll('.vip-badge-display').forEach(el => {
             el.innerHTML = isVip
                 ? '<span class="badge badge-gold"><i class="fa-solid fa-crown"></i> VIP Gold</span>'
@@ -225,10 +225,10 @@ const CustomerAuth = {
                 body: {
                     fullName,
                     email,
-                    phoneNumber,
-                    deliveryAddress,
+                    phone: phoneNumber,
+                    address: deliveryAddress,
                     password,
-                    registerAsPremium: vipUpgrade
+                    customerType: vipUpgrade ? 'PREMIUM' : 'REGULAR'
                 }
             });
 
@@ -275,13 +275,13 @@ const CustomerAuth = {
         if (form) {
             form.fullName.value = user.fullName || '';
             form.email.value = user.email || '';
-            form.phoneNumber.value = user.phoneNumber || '';
-            form.deliveryAddress.value = user.deliveryAddress || '';
+            form.phoneNumber.value = user.phone || user.phoneNumber || '';
+            form.deliveryAddress.value = user.address || user.deliveryAddress || '';
             if (form.password) form.password.value = '';
         }
 
         // Show VIP perks info
-        const isVip = user.tier === 'PREMIUM';
+        const isVip = (user.customerType === 'PREMIUM' || user.tier === 'PREMIUM');
         const vipUpgradeContainer = document.getElementById('profile-vip-upgrade-box');
         if (vipUpgradeContainer) {
             vipUpgradeContainer.style.display = isVip ? 'none' : 'block';
@@ -311,8 +311,12 @@ const CustomerAuth = {
         const deliveryAddress = form.deliveryAddress.value.trim();
         const password = form.password ? form.password.value : '';
 
-        const payload = { fullName, phoneNumber, deliveryAddress };
-        if (password) payload.password = password;
+        const payload = {
+            fullName,
+            phone: phoneNumber,
+            address: deliveryAddress
+        };
+        if (password) payload.newPassword = password;
 
         try {
             const res = await Crumb.api(`/customers/${id}`, {
