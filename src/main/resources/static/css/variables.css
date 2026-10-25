@@ -1,0 +1,104 @@
+/* ==========================================================================
+   CRUMB BAKERY - DESIGN SYSTEM & THEME TOKENS
+   Warm Appetizing Palette: Cream, Rich Chocolate, Blush Pink, Golden Caramel
+   ========================================================================== */
+
+:root {
+    /* Brand Primary & Accents */
+    --color-primary: #5C2C16;            /* Deep Warm Roast Chocolate */
+    --color-primary-dark: #3E1B0C;       /* Dark Chocolate */
+    --color-primary-light: #7E3E20;      /* Milk Chocolate */
+    --color-accent: #D48B38;             /* Warm Golden Caramel */
+    --color-accent-hover: #BF7827;       /* Deep Caramel */
+    --color-accent-light: #FDE8D0;       /* Spun Sugar / Golden Frosting */
+    --color-blush: #F7D6D0;              /* Sweet Rose Glaze */
+    --color-blush-light: #FFF2F0;        /* Light Strawberry Frosting */
+    
+    /* Backgrounds & Surfaces (Light Mode) */
+    --bg-page: #FDFBF7;                  /* Warm Clotted Cream */
+    --bg-surface: #FFFFFF;               /* Pure White Card */
+    --bg-surface-alt: #F8F4EE;           /* Soft Vanilla Biscuit */
+    --bg-surface-elevated: #FFFFFF;      /* Floating Modal / Dropdown */
+    --bg-overlay: rgba(35, 17, 10, 0.6); /* Chocolate Backdrop */
+    
+    /* Text & Typography */
+    --text-primary: #2C1810;             /* Dark Espresso */
+    --text-secondary: #6B554B;           /* Cinnamon Wood */
+    --text-muted: #9C867D;               /* Soft Cocoa Dust */
+    --text-inverse: #FFFFFF;             /* White Text */
+    
+    /* Borders & Dividers */
+    --border-color: #EADBCE;             /* Light Pastry Crust */
+    --border-subtle: #F2E8DE;            /* Subtle divider */
+    --border-focus: #D48B38;             /* Caramel Ring */
+    
+    /* Feedback States */
+    --state-success: #2E7D32;
+    --state-success-bg: #E8F5E9;
+    --state-warning: #ED6C02;
+    --state-warning-bg: #FFF3E0;
+    --state-error: #D32F2F;
+    --state-error-bg: #FFEBEE;
+    --state-info: #0288D1;
+    --state-info-bg: #E1F5FE;
+    
+    /* Shadows */
+    --shadow-sm: 0 2px 6px rgba(44, 24, 16, 0.05);
+    --shadow-md: 0 6px 18px rgba(44, 24, 16, 0.08);
+    --shadow-lg: 0 12px 32px rgba(44, 24, 16, 0.12);
+    --shadow-xl: 0 20px 48px rgba(44, 24, 16, 0.16);
+    
+    /* Border Radius */
+    --radius-sm: 8px;
+    --radius-md: 14px;
+    --radius-lg: 20px;
+    --radius-xl: 28px;
+    --radius-full: 9999px;
+    
+    /* Typography */
+    --font-heading: 'Playfair Display', Georgia, serif;
+    --font-body: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    
+    /* Transitions */
+    --transition-fast: 0.18s ease;
+    --transition-normal: 0.28s ease;
+    --transition-slow: 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+    
+    /* WhatsApp Theme */
+    --whatsapp-color: #25D366;
+    --whatsapp-hover: #20BD5A;
+}
+
+/* ==========================================================================
+   DARK THEME TOKENS (Deep Mocha Chocolate & Warm Amber)
+   ========================================================================== */
+[data-theme="dark"] {
+    --color-primary: #D48B38;            /* Caramel Header in Dark */
+    --color-primary-dark: #BF7827;
+    --color-primary-light: #FDE8D0;
+    --color-accent: #E69A3B;
+    --color-accent-hover: #F5AB4D;
+    --color-accent-light: #3B2A1C;
+    --color-blush: #4A2B2C;
+    --color-blush-light: #351F21;
+    
+    --bg-page: #190E0A;                  /* Midnight Mocha */
+    --bg-surface: #241510;               /* Dark Chocolate Truffle */
+    --bg-surface-alt: #2D1A14;           /* Roasted Cocoa Shell */
+    --bg-surface-elevated: #321D17;      /* Elevated Card */
+    --bg-overlay: rgba(10, 6, 4, 0.75);
+    
+    --text-primary: #F7EFE8;             /* Clotted Cream Text */
+    --text-secondary: #D4C3B7;           /* Warm Almond */
+    --text-muted: #9E897D;               /* Dusty Cocoa */
+    --text-inverse: #190E0A;
+    
+    --border-color: #3D261E;
+    --border-subtle: #2C1A14;
+    --border-focus: #E69A3B;
+    
+    --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
+    --shadow-md: 0 6px 20px rgba(0, 0, 0, 0.4);
+    --shadow-lg: 0 12px 36px rgba(0, 0, 0, 0.5);
+    --shadow-xl: 0 20px 50px rgba(0, 0, 0, 0.6);
+}
