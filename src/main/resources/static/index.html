@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Crumb &amp; Co. | Artisan Bakery &amp; Bespoke Custom Cakes</title>
-    <meta name="description" content="Crumb &amp; Co. is an artisan bakery crafting fresh wild-yeast sourdoughs, delicate French pastries, and bespoke celebration cakes in New York.">
+    <title>Crumb | Artisan Bakery &amp; Bespoke Custom Cakes</title>
+    <meta name="description" content="Crumb is an artisan bakery crafting fresh wild-yeast sourdoughs, delicate French pastries, and bespoke celebration cakes in New York.">
     
     <!-- Google Fonts: Playfair Display, Alex Brush & Plus Jakarta Sans -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -38,7 +38,7 @@
         <div class="container nav-container">
             <!-- Brand Logo -->
             <a href="#home" class="brand-logo">
-                <div class="brand-text">Crumb &amp; Co<span class="brand-dot">.</span></div>
+                <div class="brand-text">Crumb<span class="brand-dot">.</span></div>
             </a>
 
             <!-- Navigation Links (Dashed Style Matching Reference) -->
@@ -108,7 +108,7 @@
             <div class="hero-grid">
                 <div class="hero-content reveal">
                     <!-- Script Cursive Flourish -->
-                    <div class="hero-script-eyebrow">Crumb &amp; Co.</div>
+                    <div class="hero-script-eyebrow">Crumb</div>
                     
                     <h1 class="hero-headline">
                         Welcome to Our<br>
@@ -148,7 +148,7 @@
                 <!-- Right Visual: Baker with rustic sourdough -->
                 <div class="hero-visual reveal">
                     <div class="hero-baker-wrapper">
-                        <img src="/images/hero-baker.jpg" alt="Crumb &amp; Co. Artisan Baker holding sourdough loaf" class="hero-baker-img">
+                        <img src="/images/hero-baker.jpg" alt="Crumb Artisan Baker holding sourdough loaf" class="hero-baker-img">
                     </div>
                 </div>
             </div>
@@ -437,7 +437,7 @@
             <div class="footer-grid">
                 <div class="footer-col">
                     <div class="brand-logo" style="margin-bottom: 1rem;">
-                        <span class="brand-text" style="color: #FFFFFF;">Crumb &amp; Co<span style="color: var(--color-accent);">.</span></span>
+                        <span class="brand-text" style="color: #FFFFFF;">Crumb<span style="color: var(--color-accent);">.</span></span>
                     </div>
                     <p>Artisan bakery crafting wild-yeast sourdoughs, classic French viennoiserie, and bespoke custom celebration cakes across New York.</p>
                     <div style="display: flex; gap: 0.85rem; margin-top: 1.25rem;">
@@ -479,7 +479,7 @@
             </div>
 
             <div class="footer-bottom">
-                <div>&copy; 2026 Crumb &amp; Co. Artisan Bakery Platform. University Project SE1020 Object Oriented Programming.</div>
+                <div>&copy; 2026 Crumb Artisan Bakery Platform. University Project SE1020 Object Oriented Programming.</div>
                 <div>Designed with passion by 6 students. Powered by Spring Boot 3 &amp; MySQL.</div>
             </div>
         </div>
@@ -504,73 +504,143 @@
          MODALS COLLECTION
          ========================================================================== -->
 
-    <!-- 1. Auth Modal (Tabbed Sign In & Sign Up) -->
+    <!-- 1. Auth Modal (Glassy Luxury Dialog with Swiping Segmented Control) -->
     <div class="modal-overlay" id="auth-modal">
-        <div class="modal-dialog">
-            <div class="modal-header">
-                <div style="display: flex; gap: 1rem;">
-                    <button class="btn btn-sm auth-tab-btn active" data-tab="login-tab">Sign In</button>
-                    <button class="btn btn-sm auth-tab-btn" data-tab="register-tab">Join Crumb</button>
+        <div class="modal-dialog auth-modal-dialog">
+            <div class="modal-header auth-modal-header">
+                <!-- Swiping / Sliding Segmented Switcher in the Same Row -->
+                <div class="auth-segmented-switcher">
+                    <div class="auth-slider-pill" id="auth-slider-pill"></div>
+                    <button type="button" class="auth-tab-btn active" data-tab="login-tab">
+                        <i class="fa-solid fa-arrow-right-to-bracket"></i> Sign In
+                    </button>
+                    <button type="button" class="auth-tab-btn" data-tab="register-tab">
+                        <i class="fa-solid fa-sparkles"></i> Join Crumb
+                    </button>
                 </div>
-                <button class="modal-close" data-modal-close aria-label="Close">&times;</button>
+                <button class="modal-close" data-modal-close aria-label="Close">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
             </div>
             
-            <div class="modal-body">
+            <div class="modal-body auth-modal-body">
                 <!-- Sign In Form -->
                 <div class="auth-tab-content" id="login-tab">
+                    <div class="auth-heading-group">
+                        <h3 class="auth-title">Welcome Back to Crumb</h3>
+                        <p class="auth-subtitle">Sign in to enjoy saved orders, member discounts, and instant checkout.</p>
+                    </div>
+
                     <form id="login-form">
-                        <div class="form-group">
+                        <div class="form-group-glass">
                             <label class="form-label" for="login-email">Email Address</label>
-                            <input type="email" id="login-email" name="email" class="form-control" placeholder="you@domain.com" required>
+                            <div class="input-icon-wrapper">
+                                <i class="fa-solid fa-envelope input-icon"></i>
+                                <input type="email" id="login-email" name="email" class="form-control" placeholder="you@domain.com" required autocomplete="email">
+                            </div>
                         </div>
-                        <div class="form-group">
+                        <div class="form-group-glass">
                             <label class="form-label" for="login-password">Password</label>
-                            <input type="password" id="login-password" name="password" class="form-control" placeholder="••••••••" required>
+                            <div class="input-icon-wrapper">
+                                <i class="fa-solid fa-lock input-icon"></i>
+                                <input type="password" id="login-password" name="password" class="form-control" placeholder="••••••••" required autocomplete="current-password">
+                                <button type="button" class="password-toggle-btn" data-target="login-password" aria-label="Toggle password visibility">
+                                    <i class="fa-regular fa-eye"></i>
+                                </button>
+                            </div>
                         </div>
-                        <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 1rem;">
-                            <i class="fa-solid fa-right-to-bracket"></i> Sign In to Crumb
+                        <button type="submit" class="btn btn-primary btn-lg auth-submit-btn">
+                            <i class="fa-solid fa-arrow-right-to-bracket"></i> Sign In to Crumb
                         </button>
-                        <div style="margin-top: 1rem; text-align: center; font-size: 0.85rem; color: var(--text-muted);">
-                            Default Admin Account: <code>admin@crumb.com</code> / <code>Admin@123</code>
+                        
+                        <!-- Clickable Auto-Fill Pill for Admin Reviewers -->
+                        <div class="auth-demo-pill" id="fill-admin-btn" title="Click to auto-fill admin credentials">
+                            <i class="fa-solid fa-shield-halved"></i>
+                            <span>Admin Demo: <strong>admin@crumb.com</strong> / <strong>Admin@123</strong> (Click to auto-fill)</span>
                         </div>
                     </form>
                 </div>
 
                 <!-- Sign Up Form -->
                 <div class="auth-tab-content" id="register-tab" style="display: none;">
+                    <div class="auth-heading-group">
+                        <h3 class="auth-title">Create Your Crumb Account</h3>
+                        <p class="auth-subtitle">Order artisan hearth bakes and craft custom multi-tier celebration cakes.</p>
+                    </div>
+
                     <form id="register-form">
-                        <div class="form-group">
-                            <label class="form-label" for="reg-name">Full Name</label>
-                            <input type="text" id="reg-name" name="fullName" class="form-control" placeholder="Sarah Jenkins" required>
+                        <div class="auth-form-grid">
+                            <div class="form-group-glass">
+                                <label class="form-label" for="reg-name">Full Name</label>
+                                <div class="input-icon-wrapper">
+                                    <i class="fa-solid fa-user input-icon"></i>
+                                    <input type="text" id="reg-name" name="fullName" class="form-control" placeholder="Sarah Jenkins" required autocomplete="name">
+                                </div>
+                            </div>
+                            <div class="form-group-glass">
+                                <label class="form-label" for="reg-email">Email Address</label>
+                                <div class="input-icon-wrapper">
+                                    <i class="fa-solid fa-envelope input-icon"></i>
+                                    <input type="email" id="reg-email" name="email" class="form-control" placeholder="sarah@domain.com" required autocomplete="email">
+                                </div>
+                            </div>
                         </div>
-                        <div class="form-group">
-                            <label class="form-label" for="reg-email">Email Address</label>
-                            <input type="email" id="reg-email" name="email" class="form-control" placeholder="sarah@domain.com" required>
+
+                        <div class="auth-form-grid">
+                            <div class="form-group-glass">
+                                <label class="form-label" for="reg-phone">Phone Number</label>
+                                <div class="input-icon-wrapper">
+                                    <i class="fa-solid fa-phone input-icon"></i>
+                                    <input type="tel" id="reg-phone" name="phoneNumber" class="form-control" placeholder="+1 (234) 567-8901" required autocomplete="tel">
+                                </div>
+                            </div>
+                            <div class="form-group-glass">
+                                <label class="form-label" for="reg-address">Delivery Address</label>
+                                <div class="input-icon-wrapper">
+                                    <i class="fa-solid fa-location-dot input-icon"></i>
+                                    <input type="text" id="reg-address" name="deliveryAddress" class="form-control" placeholder="Apt 4B, 2260 Pacific St, Brooklyn" required autocomplete="street-address">
+                                </div>
+                            </div>
                         </div>
-                        <div class="form-group">
-                            <label class="form-label" for="reg-phone">Phone Number</label>
-                            <input type="tel" id="reg-phone" name="phoneNumber" class="form-control" placeholder="+94 77 123 4567" required>
+
+                        <div class="auth-form-grid">
+                            <div class="form-group-glass">
+                                <label class="form-label" for="reg-password">Password</label>
+                                <div class="input-icon-wrapper">
+                                    <i class="fa-solid fa-lock input-icon"></i>
+                                    <input type="password" id="reg-password" name="password" class="form-control" placeholder="At least 6 characters" required autocomplete="new-password">
+                                    <button type="button" class="password-toggle-btn" data-target="reg-password" aria-label="Toggle password visibility">
+                                        <i class="fa-regular fa-eye"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="form-group-glass">
+                                <label class="form-label" for="reg-confirm-password">Confirm Password</label>
+                                <div class="input-icon-wrapper">
+                                    <i class="fa-solid fa-shield-check input-icon"></i>
+                                    <input type="password" id="reg-confirm-password" name="confirmPassword" class="form-control" placeholder="Repeat password" required autocomplete="new-password">
+                                    <button type="button" class="password-toggle-btn" data-target="reg-confirm-password" aria-label="Toggle password visibility">
+                                        <i class="fa-regular fa-eye"></i>
+                                    </button>
+                                </div>
+                            </div>
                         </div>
-                        <div class="form-group">
-                            <label class="form-label" for="reg-address">Delivery Address</label>
-                            <input type="text" id="reg-address" name="deliveryAddress" class="form-control" placeholder="Apt 4B, 12 Lotus Road, Colombo" required>
-                        </div>
-                        <div class="form-group">
-                            <label class="form-label" for="reg-password">Password</label>
-                            <input type="password" id="reg-password" name="password" class="form-control" placeholder="At least 6 characters" required>
-                        </div>
-                        <div class="form-group">
-                            <label class="form-label" for="reg-confirm-password">Confirm Password</label>
-                            <input type="password" id="reg-confirm-password" name="confirmPassword" class="form-control" placeholder="Repeat password" required>
-                        </div>
-                        <div class="form-group">
-                            <label style="display: flex; align-items: center; gap: 0.6rem; font-size: 0.88rem; cursor: pointer;">
-                                <input type="checkbox" name="vipOptIn">
-                                <span>Enroll as <strong>VIP Gold Member</strong> (Complimentary delivery & 10% discount on every order!)</span>
+
+                        <!-- VIP Gold Tier Option Card -->
+                        <div class="vip-option-card">
+                            <input type="checkbox" name="vipOptIn" id="vip-opt-checkbox" class="vip-checkbox">
+                            <label for="vip-opt-checkbox" class="vip-option-label">
+                                <div class="vip-crown-badge"><i class="fa-solid fa-crown"></i></div>
+                                <div class="vip-info">
+                                    <div class="vip-name">VIP Gold Membership <span class="badge badge-gold">Complimentary</span></div>
+                                    <div class="vip-desc">Free white-glove delivery &amp; 10% instant discount on every single order.</div>
+                                </div>
+                                <div class="vip-toggle-check"><i class="fa-solid fa-check"></i></div>
                             </label>
                         </div>
-                        <button type="submit" class="btn btn-accent" style="width: 100%; margin-top: 1rem;">
-                            <i class="fa-solid fa-user-plus"></i> Create My Account
+
+                        <button type="submit" class="btn btn-primary btn-lg auth-submit-btn">
+                            <i class="fa-solid fa-sparkles"></i> Create My Account
                         </button>
                     </form>
                 </div>

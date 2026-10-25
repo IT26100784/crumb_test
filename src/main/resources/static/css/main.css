@@ -314,15 +314,16 @@ textarea.form-control {
     }
 }
 
-/* Modals */
+/* Modals - Glassmorphism & Luxury Rounded Aesthetics */
 .modal-overlay {
     position: fixed;
     top: 0;
     left: 0;
     width: 100vw;
     height: 100vh;
-    background: var(--bg-overlay);
-    backdrop-filter: blur(5px);
+    background: rgba(8, 8, 8, 0.78);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
     z-index: 10000;
     display: flex;
     align-items: center;
@@ -337,14 +338,16 @@ textarea.form-control {
     visibility: visible;
 }
 .modal-dialog {
-    background: var(--bg-surface);
-    border-radius: var(--radius-xl);
+    background: rgba(22, 22, 22, 0.88);
+    backdrop-filter: blur(28px) saturate(180%);
+    -webkit-backdrop-filter: blur(28px) saturate(180%);
+    border-radius: 26px;
     width: 100%;
     max-width: 560px;
     max-height: 90vh;
     overflow-y: auto;
-    box-shadow: var(--shadow-xl);
-    border: 1px solid var(--border-color);
+    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.85), inset 0 1px 0 rgba(255, 255, 255, 0.15), 0 0 35px rgba(214, 144, 85, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.12);
     transform: scale(0.92) translateY(20px);
     transition: all var(--transition-slow);
 }
@@ -362,16 +365,16 @@ textarea.form-control {
     align-items: center;
     justify-content: space-between;
     padding: 1.5rem 1.75rem 1rem;
-    border-bottom: 1px solid var(--border-subtle);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 .modal-title {
     font-size: 1.4rem;
 }
 .modal-close {
-    background: var(--bg-surface-alt);
-    border: none;
-    width: 36px;
-    height: 36px;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    width: 38px;
+    height: 38px;
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -379,10 +382,13 @@ textarea.form-control {
     color: var(--text-secondary);
     cursor: pointer;
     transition: all var(--transition-fast);
+    flex-shrink: 0;
 }
 .modal-close:hover {
     background: var(--color-accent-light);
-    color: var(--color-primary);
+    color: var(--color-accent);
+    border-color: var(--color-accent);
+    transform: rotate(90deg);
 }
 .modal-body {
     padding: 1.5rem 1.75rem;
@@ -393,7 +399,286 @@ textarea.form-control {
     justify-content: flex-end;
     gap: 0.75rem;
     padding: 1rem 1.75rem 1.5rem;
-    border-top: 1px solid var(--border-subtle);
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* ==========================================================================
+   GLASSY AUTH MODAL & SWIPING SEGMENTED SLIDER
+   ========================================================================== */
+.auth-modal-dialog {
+    max-width: 520px;
+    border-radius: 28px;
+    background: radial-gradient(circle at top center, rgba(214, 144, 85, 0.16) 0%, transparent 65%), rgba(20, 20, 20, 0.88);
+}
+.auth-modal-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.5rem 1.75rem 0.85rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    gap: 1rem;
+}
+
+/* Swiping Segmented Control */
+.auth-segmented-switcher {
+    position: relative;
+    display: flex;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.55);
+    border-radius: 9999px;
+    padding: 4px;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    width: 100%;
+    max-width: 330px;
+}
+.auth-slider-pill {
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    width: calc(50% - 4px);
+    height: calc(100% - 8px);
+    background: linear-gradient(135deg, var(--color-accent), var(--color-accent-dark));
+    border-radius: 9999px;
+    box-shadow: 0 4px 16px rgba(214, 144, 85, 0.45);
+    transition: transform 0.35s cubic-bezier(0.2, 0.85, 0.25, 1);
+    z-index: 1;
+    pointer-events: none;
+}
+.auth-tab-btn {
+    position: relative;
+    z-index: 2;
+    flex: 1;
+    text-align: center;
+    padding: 0.6rem 1rem;
+    border: none;
+    background: transparent;
+    color: var(--text-secondary);
+    font-weight: 600;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: color 0.25s ease;
+    border-radius: 9999px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.45rem;
+    outline: none;
+    white-space: nowrap;
+}
+.auth-tab-btn.active {
+    color: #FFFFFF;
+    font-weight: 700;
+}
+.auth-tab-btn i {
+    font-size: 0.85rem;
+}
+
+.auth-modal-body {
+    padding: 1.75rem 2rem 2rem;
+}
+.auth-heading-group {
+    text-align: center;
+    margin-bottom: 1.6rem;
+}
+.auth-title {
+    font-size: 1.5rem;
+    font-family: var(--font-heading);
+    color: var(--text-primary);
+    margin-bottom: 0.35rem;
+    letter-spacing: -0.01em;
+}
+.auth-subtitle {
+    font-size: 0.86rem;
+    color: var(--text-secondary);
+    max-width: 400px;
+    margin: 0 auto;
+    line-height: 1.45;
+}
+.auth-tab-content {
+    animation: authFadeSlide 0.32s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+@keyframes authFadeSlide {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.auth-form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.85rem;
+}
+@media (max-width: 480px) {
+    .auth-form-grid {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+    .auth-modal-body {
+        padding: 1.25rem 1.25rem 1.5rem;
+    }
+}
+
+.form-group-glass {
+    margin-bottom: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+}
+.input-icon-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+.input-icon-wrapper .input-icon {
+    position: absolute;
+    left: 14px;
+    color: var(--text-muted);
+    font-size: 0.92rem;
+    pointer-events: none;
+    transition: color var(--transition-fast);
+}
+.input-icon-wrapper .form-control {
+    width: 100%;
+    padding: 0.72rem 1rem 0.72rem 2.6rem;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1.5px solid rgba(255, 255, 255, 0.1);
+    border-radius: 14px;
+    color: var(--text-primary);
+    font-size: 0.92rem;
+    font-family: var(--font-body);
+    transition: all var(--transition-fast);
+    outline: none;
+}
+.input-icon-wrapper .form-control:focus {
+    border-color: var(--color-accent);
+    background: rgba(255, 255, 255, 0.08);
+    box-shadow: 0 0 0 3px rgba(214, 144, 85, 0.22);
+}
+.input-icon-wrapper .form-control:focus ~ .input-icon {
+    color: var(--color-accent);
+}
+.password-toggle-btn {
+    position: absolute;
+    right: 12px;
+    background: transparent;
+    border: none;
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    cursor: pointer;
+    padding: 4px;
+    transition: color var(--transition-fast);
+}
+.password-toggle-btn:hover {
+    color: var(--color-accent);
+}
+
+.auth-submit-btn {
+    width: 100%;
+    margin-top: 0.75rem;
+    padding: 0.85rem 1.5rem;
+    font-size: 1rem;
+    font-weight: 700;
+    box-shadow: 0 8px 24px rgba(214, 144, 85, 0.35);
+}
+
+.auth-demo-pill {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-top: 1.25rem;
+    padding: 0.65rem 1rem;
+    border-radius: var(--radius-full);
+    background: rgba(214, 144, 85, 0.1);
+    border: 1px dashed rgba(214, 144, 85, 0.4);
+    font-size: 0.82rem;
+    color: var(--text-secondary);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    user-select: none;
+}
+.auth-demo-pill:hover {
+    background: rgba(214, 144, 85, 0.18);
+    border-color: var(--color-accent);
+    color: var(--text-primary);
+    transform: translateY(-1px);
+}
+
+.vip-option-card {
+    margin: 0.5rem 0 1rem;
+}
+.vip-checkbox {
+    display: none;
+}
+.vip-option-label {
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+    padding: 0.85rem 1rem;
+    border-radius: 16px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1.5px solid rgba(255, 255, 255, 0.1);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+.vip-option-label:hover {
+    background: rgba(255, 255, 255, 0.06);
+    border-color: rgba(214, 144, 85, 0.5);
+}
+.vip-checkbox:checked + .vip-option-label {
+    background: rgba(214, 144, 85, 0.12);
+    border-color: var(--color-accent);
+}
+.vip-crown-badge {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #FFD700, #FFA500);
+    color: #382402;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.05rem;
+    flex-shrink: 0;
+}
+.vip-info {
+    flex: 1;
+}
+.vip-name {
+    font-size: 0.88rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+.vip-desc {
+    font-size: 0.78rem;
+    color: var(--text-secondary);
+    line-height: 1.35;
+    margin-top: 2px;
+}
+.vip-toggle-check {
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    border: 2px solid rgba(255, 255, 255, 0.25);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.72rem;
+    color: transparent;
+    transition: all var(--transition-fast);
+}
+.vip-checkbox:checked + .vip-option-label .vip-toggle-check {
+    background: var(--color-accent);
+    border-color: var(--color-accent);
+    color: #FFFFFF;
 }
 
 /* Skeleton Loaders */

@@ -167,7 +167,6 @@ const Crumb = {
         document.documentElement.setAttribute('data-theme', newTheme);
         localStorage.setItem('crumb_theme', newTheme);
         this.updateThemeIcons(newTheme);
-        this.showToast(`Switched to ${newTheme} mode`, 'info');
     },
 
     updateThemeIcons(theme) {

@@ -20,17 +20,91 @@ const CustomerAuth = {
      * Binds form submit and modal toggle events.
      */
     bindEvents() {
-        // Modal tab switching (Sign In vs Sign Up)
+        // Swiping Segmented Control for Auth Tabs
         const tabBtns = document.querySelectorAll('.auth-tab-btn');
+        const sliderPill = document.getElementById('auth-slider-pill');
         tabBtns.forEach(btn => {
             btn.addEventListener('click', () => {
                 const target = btn.dataset.tab;
                 tabBtns.forEach(b => b.classList.remove('active'));
                 btn.classList.add('active');
 
+                // Animate swiping slider pill
+                if (sliderPill) {
+                    if (target === 'register-tab') {
+                        sliderPill.style.transform = 'translateX(100%)';
+                    } else {
+                        sliderPill.style.transform = 'translateX(0)';
+                    }
+                }
+
                 document.querySelectorAll('.auth-tab-content').forEach(pane => {
-                    pane.style.display = (pane.id === target) ? 'block' : 'none';
+                    if (pane.id === target) {
+                        pane.style.display = 'block';
+                    } else {
+                        pane.style.display = 'none';
+                    }
                 });
+            });
+        });
+
+        // Touch Swipe Gesture on Auth Modal Dialog
+        const authDialog = document.querySelector('.auth-modal-dialog');
+        if (authDialog) {
+            let startX = 0;
+            authDialog.addEventListener('touchstart', (e) => {
+                startX = e.touches[0].clientX;
+            }, { passive: true });
+            authDialog.addEventListener('touchend', (e) => {
+                const endX = e.changedTouches[0].clientX;
+                const diffX = endX - startX;
+                if (diffX < -50) {
+                    // Swiped Left -> go to Register
+                    const regBtn = document.querySelector('.auth-tab-btn[data-tab="register-tab"]');
+                    if (regBtn) regBtn.click();
+                } else if (diffX > 50) {
+                    // Swiped Right -> go to Login
+                    const loginBtn = document.querySelector('.auth-tab-btn[data-tab="login-tab"]');
+                    if (loginBtn) loginBtn.click();
+                }
+            }, { passive: true });
+        }
+
+        // Clickable Admin Auto-Fill Demo Pill
+        const fillAdminBtn = document.getElementById('fill-admin-btn');
+        if (fillAdminBtn) {
+            fillAdminBtn.addEventListener('click', () => {
+                const emailInput = document.getElementById('login-email');
+                const passInput = document.getElementById('login-password');
+                if (emailInput && passInput) {
+                    emailInput.value = 'admin@crumb.com';
+                    passInput.value = 'Admin@123';
+                    Crumb.showToast('Demo admin credentials populated!', 'info');
+                }
+            });
+        }
+
+        // Password Show/Hide Toggle Buttons
+        document.querySelectorAll('.password-toggle-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const targetId = btn.dataset.target;
+                const input = document.getElementById(targetId);
+                const icon = btn.querySelector('i');
+                if (input) {
+                    if (input.type === 'password') {
+                        input.type = 'text';
+                        if (icon) {
+                            icon.classList.remove('fa-eye');
+                            icon.classList.add('fa-eye-slash');
+                        }
+                    } else {
+                        input.type = 'password';
+                        if (icon) {
+                            icon.classList.remove('fa-eye-slash');
+                            icon.classList.add('fa-eye');
+                        }
+                    }
+                }
             });
         });
 
@@ -243,7 +317,7 @@ const CustomerAuth = {
             Crumb.showToast(error.message || 'Registration failed. Email might already exist.', 'error');
         } finally {
             submitBtn.disabled = false;
-            submitBtn.innerHTML = '<i class="fa-solid fa-user-plus"></i> Create My Account';
+            submitBtn.innerHTML = '<i class="fa-solid fa-sparkles"></i> Create My Account';
         }
     },
 
