@@ -182,50 +182,148 @@ const CustomCakeBuilder = {
     },
 
     /**
-     * Update 2D Cake Graphic in the preview stage.
+     * Update Realistic 3D Aesthetic Cake Graphic in the preview stage.
      */
     renderVisualizer() {
         const stage = document.getElementById('cake-stage-layers');
         if (!stage) return;
-
-        // Clear existing layers
         stage.innerHTML = '';
 
         const tiersCount = this.state.tiers;
-        const color = this.state.frostingColor;
+        const baseColor = this.state.frostingColor;
+
+        // Flavor realistic lighting gradients & dripping glazes
+        const flavorShades = {
+            'Belgian Chocolate Fudge': {
+                bodyGrad: 'linear-gradient(90deg, #200E05 0%, #401C0B 22%, #5D2A12 50%, #301407 82%, #180903 100%)',
+                capGrad: 'radial-gradient(ellipse at center, #5D2A12 0%, #401C0B 65%, #200E05 100%)',
+                dripColor: '#1A0B04'
+            },
+            'Tahitian Vanilla Bean': {
+                bodyGrad: 'linear-gradient(90deg, #D4C3A3 0%, #FAF1DE 26%, #FFF9EE 50%, #E8DAC0 80%, #C4B290 100%)',
+                capGrad: 'radial-gradient(ellipse at center, #FFF9EE 0%, #FAF1DE 65%, #D4C3A3 100%)',
+                dripColor: '#C4B290'
+            },
+            'Velvet Royale': {
+                bodyGrad: 'linear-gradient(90deg, #4A0E15 0%, #7E1925 24%, #9B2333 50%, #60111A 80%, #35080E 100%)',
+                capGrad: 'radial-gradient(ellipse at center, #9B2333 0%, #7E1925 65%, #4A0E15 100%)',
+                dripColor: '#FAF1DE'
+            },
+            'Salted Caramel Lotus': {
+                bodyGrad: 'linear-gradient(90deg, #7A461A 0%, #B8732E 24%, #D68D3F 50%, #9C5C1F 80%, #5E320E 100%)',
+                capGrad: 'radial-gradient(ellipse at center, #D68D3F 0%, #B8732E 65%, #7A461A 100%)',
+                dripColor: '#4A2306'
+            },
+            'Matcha White Chocolate': {
+                bodyGrad: 'linear-gradient(90deg, #4F6346 0%, #7B956E 24%, #97B389 50%, #68825C 80%, #3B4B34 100%)',
+                capGrad: 'radial-gradient(ellipse at center, #97B389 0%, #7B956E 65%, #4F6346 100%)',
+                dripColor: '#FFF8E6'
+            }
+        };
+
+        const theme = flavorShades[this.state.flavor] || {
+            bodyGrad: `linear-gradient(90deg, rgba(0,0,0,0.5) 0%, rgba(255,255,255,0.2) 25%, ${baseColor} 50%, rgba(0,0,0,0.6) 100%)`,
+            capGrad: baseColor,
+            dripColor: 'rgba(0,0,0,0.35)'
+        };
 
         // Render each tier from bottom to top
         for (let i = 1; i <= tiersCount; i++) {
-            const layer = document.createElement('div');
-            layer.className = `cake-layer cake-layer-${i}`;
-            layer.style.backgroundColor = color;
-            
-            // Add subtle border frosting accent
-            layer.style.borderTop = '3px solid rgba(255, 255, 255, 0.45)';
+            const tierEl = document.createElement('div');
+            tierEl.className = `realistic-tier tier-${i}`;
 
-            // If gold leaf is enabled
-            if (this.state.goldLeafAccent) {
-                layer.style.backgroundImage = 'radial-gradient(circle at 30% 40%, rgba(255,215,0,0.4) 0%, transparent 60%)';
+            // Top Cap Ellipse
+            const cap = document.createElement('div');
+            cap.className = 'tier-cap';
+            cap.style.background = theme.capGrad;
+
+            // Tier Body Cylinder
+            const body = document.createElement('div');
+            body.className = 'tier-body';
+            body.style.background = theme.bodyGrad;
+
+            // Realistic dripping ganache glaze on top tier and middle tier
+            if (i === tiersCount || i === 2) {
+                const drip = document.createElement('div');
+                drip.className = 'realistic-drip';
+                drip.innerHTML = `
+                    <div class="drip-drops">
+                        <div class="drip-drop" style="background:${theme.dripColor}; height:14px;"></div>
+                        <div class="drip-drop" style="background:${theme.dripColor}; height:22px;"></div>
+                        <div class="drip-drop" style="background:${theme.dripColor}; height:11px;"></div>
+                        <div class="drip-drop" style="background:${theme.dripColor}; height:18px;"></div>
+                        <div class="drip-drop" style="background:${theme.dripColor}; height:13px;"></div>
+                    </div>
+                `;
+                body.appendChild(drip);
             }
 
-            stage.appendChild(layer);
+            // Pearl bead piping row at the base
+            const pearlRow = document.createElement('div');
+            pearlRow.className = 'pearl-bead-row';
+            body.appendChild(pearlRow);
+
+            // Gold Leaf Flakes if enabled
+            if (this.state.goldLeafAccent) {
+                for (let g = 0; g < 4; g++) {
+                    const flake = document.createElement('div');
+                    flake.className = 'gold-leaf-flake';
+                    flake.style.width = `${Math.floor(Math.random() * 8) + 6}px`;
+                    flake.style.height = `${Math.floor(Math.random() * 6) + 4}px`;
+                    flake.style.top = `${Math.floor(Math.random() * 60) + 15}%`;
+                    flake.style.left = `${Math.floor(Math.random() * 70) + 15}%`;
+                    body.appendChild(flake);
+                }
+            }
+
+            // Inscription Fondant Ribbon on the front tier (bottom or middle tier)
+            if (i === 1 && this.state.inscription && this.state.inscription.trim().length > 0) {
+                const ribbon = document.createElement('div');
+                ribbon.className = 'fondant-ribbon-plaque';
+                ribbon.innerHTML = `<span>${this.state.inscription}</span>`;
+                body.appendChild(ribbon);
+            }
+
+            tierEl.appendChild(cap);
+            tierEl.appendChild(body);
+            stage.appendChild(tierEl);
         }
 
-        // Add top ornament (Candles, Florals, or Monogram)
-        const ornament = document.createElement('div');
-        ornament.className = 'cake-topping-ornament';
-
+        // Add Realistic Topper
         if (this.state.cakeType === 'BIRTHDAY' && this.state.includeCandles) {
-            ornament.innerHTML = '🎂';
+            const candle = document.createElement('div');
+            candle.className = 'realistic-candle';
+            candle.innerHTML = `
+                <div class="candle-flame"></div>
+                <div class="candle-wick"></div>
+                <div class="candle-stick"></div>
+            `;
+            stage.appendChild(candle);
         } else if (this.state.cakeType === 'WEDDING' && this.state.floralArrangement) {
-            ornament.innerHTML = '💐';
+            const florals = document.createElement('div');
+            florals.className = 'realistic-florals';
+            florals.innerHTML = `
+                <svg viewBox="0 0 80 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="34" cy="24" r="14" fill="#F4D3C4" stroke="#E5A894" stroke-width="2"/>
+                    <circle cx="46" cy="22" r="12" fill="#E8B4B8" stroke="#D38B92" stroke-width="2"/>
+                    <circle cx="40" cy="14" r="10" fill="#FFF2EB" stroke="#ECC4B2" stroke-width="2"/>
+                    <path d="M18 32 C12 20 28 16 32 24 Z" fill="#6B8E65"/>
+                    <path d="M62 30 C70 20 54 14 50 24 Z" fill="#587A52"/>
+                    <circle cx="34" cy="24" r="5" fill="#E5A894"/>
+                    <circle cx="46" cy="22" r="4" fill="#D38B92"/>
+                </svg>
+            `;
+            stage.appendChild(florals);
         } else if (this.state.cakeType === 'CELEBRATION') {
-            ornament.innerHTML = '✨';
-        } else {
-            ornament.innerHTML = '🍓';
+            const monogram = document.createElement('div');
+            monogram.className = 'realistic-florals';
+            monogram.innerHTML = `
+                <div style="background: linear-gradient(135deg, #FFDF73, #D4AF37, #AA771C); padding: 5px 14px; border-radius: 9999px; font-family: var(--font-script); color: #2B1602; font-weight: 800; font-size: 1rem; box-shadow: 0 4px 15px rgba(212, 175, 55, 0.6); border: 1.5px solid #FFEAA7;">
+                    Celebration &bull; 2026
+                </div>
+            `;
+            stage.appendChild(monogram);
         }
-
-        stage.appendChild(ornament);
     },
 
     /**
@@ -259,15 +357,15 @@ const CustomCakeBuilder = {
                 this.updatePriceUI(res.data.estimatedPrice);
             }
         } catch (e) {
-            // Local fallback calculation
-            let base = 50.0;
-            if (this.state.cakeType === 'WEDDING') base = 120.0;
-            if (this.state.cakeType === 'CELEBRATION') base = 75.0;
+            // Local fallback calculation in LKR
+            let base = 6500.0;
+            if (this.state.cakeType === 'WEDDING') base = 18000.0;
+            if (this.state.cakeType === 'CELEBRATION') base = 8500.0;
 
-            const tierAdd = (this.state.tiers - 1) * 25.0;
-            const extras = (this.state.includeCandles ? 5.0 : 0) +
-                           (this.state.floralArrangement ? 20.0 : 0) +
-                           (this.state.goldLeafAccent ? 15.0 : 0);
+            const tierAdd = (this.state.tiers - 1) * 6000.0;
+            const extras = (this.state.includeCandles ? 450.0 : 0) +
+                           (this.state.floralArrangement ? 2500.0 : 0) +
+                           (this.state.goldLeafAccent ? 3500.0 : 0);
 
             const total = base + tierAdd + extras;
             this.state.estimatedPrice = total;

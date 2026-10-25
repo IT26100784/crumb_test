@@ -106,8 +106,8 @@ window.OrderModule = {
 
         const cart = ProductCatalog.cart;
         container.innerHTML = cart.map(item => `
-            <div style="display: flex; justify-content: space-between; font-size: 0.9rem; margin-bottom: 0.4rem;">
-                <span>${item.quantity}x ${item.name}</span>
+            <div style="display: flex; justify-content: space-between; align-items: center; font-size: 0.9rem; margin-bottom: 0.45rem;">
+                <span><span class="product-id-tag">#PRD-0${item.id}</span> ${item.quantity}x ${item.name}</span>
                 <span style="font-weight: 700;">${Crumb.formatCurrency(item.basePrice * item.quantity)}</span>
             </div>
         `).join('');
@@ -121,7 +121,7 @@ window.OrderModule = {
         const isVip = Crumb.currentUser && (Crumb.currentUser.customerType === 'PREMIUM' || Crumb.currentUser.tier === 'PREMIUM');
         
         if (this.selectedFulfillment === 'DELIVERY') {
-            deliveryFee = isVip ? 0.0 : 5.0; // VIP gets waived delivery fee!
+            deliveryFee = isVip ? 0.0 : 450.0; // VIP gets waived delivery fee, standard Sri Lanka delivery LKR 450.00
         }
 
         const discount = isVip ? (subtotal * 0.10) : 0;
@@ -133,7 +133,7 @@ window.OrderModule = {
         const totalEl = document.getElementById('checkout-total-val');
 
         if (subtotalEl) subtotalEl.textContent = Crumb.formatCurrency(subtotal);
-        if (discountEl) discountEl.textContent = isVip ? `-${Crumb.formatCurrency(discount)} (VIP 10%)` : '$0.00';
+        if (discountEl) discountEl.textContent = isVip ? `-${Crumb.formatCurrency(discount)} (VIP 10%)` : 'LKR 0.00';
         if (deliveryEl) deliveryEl.textContent = deliveryFee === 0 ? 'FREE' : Crumb.formatCurrency(deliveryFee);
         if (totalEl) totalEl.textContent = Crumb.formatCurrency(finalTotal);
     },
@@ -240,7 +240,11 @@ window.OrderModule = {
 
         document.getElementById('receipt-order-no').textContent = order.orderNumber;
         document.getElementById('receipt-date').textContent = Crumb.formatDate(order.createdAt || order.orderDate);
-        document.getElementById('receipt-customer-name').textContent = order.customerName || 'Valued Customer';
+        
+        const custId = order.customerId || (Crumb.currentUser ? Crumb.currentUser.id : null);
+        const custIdBadge = custId ? `<span class="customer-id-pill" style="font-size: 0.72rem; margin-left: 6px;"><i class="fa-solid fa-id-badge"></i> #CUST-0${custId}</span>` : '';
+        document.getElementById('receipt-customer-name').innerHTML = `${order.customerName || 'Valued Customer'} ${custIdBadge}`;
+        
         document.getElementById('receipt-fulfillment').textContent = order.orderType || order.fulfillmentType || 'DELIVERY';
         document.getElementById('receipt-address').textContent = order.deliveryAddress || 'Bakery Pickup Counter';
         document.getElementById('receipt-total').textContent = Crumb.formatCurrency(order.totalAmount || order.finalTotal);
@@ -249,7 +253,7 @@ window.OrderModule = {
         if (itemsBody && order.items) {
             itemsBody.innerHTML = order.items.map(item => `
                 <tr>
-                    <td style="padding: 6px 0;">${item.productName}</td>
+                    <td style="padding: 6px 0;"><span class="product-id-tag" style="font-size: 0.7rem;">#PRD-0${item.productId || item.id}</span> ${item.productName}</td>
                     <td style="text-align: center;">${item.quantity}</td>
                     <td style="text-align: right;">${Crumb.formatCurrency(item.subtotal)}</td>
                 </tr>
@@ -315,7 +319,7 @@ window.OrderModule = {
                 <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border-subtle); padding-bottom: 1rem;">
                     <div>
                         <h3 style="margin-bottom: 4px;">Order #${order.orderNumber}</h3>
-                        <p style="font-size: 0.85rem;">Placed on ${Crumb.formatDate(order.createdAt || order.orderDate)} &bull; ${fulfillment}</p>
+                        <p style="font-size: 0.85rem;">Placed on ${Crumb.formatDate(order.createdAt || order.orderDate)} &bull; ${fulfillment} ${order.customerId ? `&bull; <span class="customer-id-pill" style="font-size: 0.72rem;"><i class="fa-solid fa-id-badge"></i> #CUST-0${order.customerId}</span>` : ''}</p>
                     </div>
                     <div>
                         <span class="badge ${isCancelled ? 'badge-error' : 'badge-success'}" style="font-size: 0.9rem; padding: 0.4rem 1rem;">
@@ -352,8 +356,8 @@ window.OrderModule = {
                 <div style="background: var(--bg-surface-alt); border-radius: var(--radius-md); padding: 1.25rem; margin-top: 1.5rem;">
                     <h5 style="margin-bottom: 0.75rem;">Order Summary</h5>
                     ${order.items.map(i => `
-                        <div style="display: flex; justify-content: space-between; font-size: 0.88rem; margin-bottom: 0.35rem;">
-                            <span>${i.quantity}x ${i.productName}</span>
+                        <div style="display: flex; justify-content: space-between; align-items: center; font-size: 0.88rem; margin-bottom: 0.4rem;">
+                            <span><span class="product-id-tag" style="font-size: 0.7rem;">#PRD-0${i.productId || i.id}</span> ${i.quantity}x ${i.productName}</span>
                             <span>${Crumb.formatCurrency(i.subtotal)}</span>
                         </div>
                     `).join('')}

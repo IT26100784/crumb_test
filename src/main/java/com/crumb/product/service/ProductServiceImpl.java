@@ -221,7 +221,7 @@ public class ProductServiceImpl implements ProductService {
         // 1. Cakes
         Cake c1 = new Cake("Triple Belgian Chocolate Fudge Cake",
                 "Layers of rich dark chocolate sponge smothered with velvety Belgian chocolate ganache.",
-                38.50,
+                6500.00,
                 "https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=800&auto=format&fit=crop&q=80",
                 15, "Gluten, Eggs, Dairy, Soy", "Dark Chocolate Ganache", 3);
         c1.setRating(4.9);
@@ -230,7 +230,7 @@ public class ProductServiceImpl implements ProductService {
 
         Cake c2 = new Cake("Madagascan Vanilla Bean & Strawberry Sponge",
                 "Light fluffy Genoise sponge layered with freshly macerated organic strawberries and Swiss buttercream.",
-                34.00,
+                5800.00,
                 "https://images.unsplash.com/photo-1565958011703-44f9829ba187?w=800&auto=format&fit=crop&q=80",
                 12, "Gluten, Eggs, Dairy", "Swiss Vanilla Buttercream", 3);
         c2.setRating(4.8);
@@ -239,7 +239,7 @@ public class ProductServiceImpl implements ProductService {
 
         Cake c3 = new Cake("Salted Caramel Lotus Biscoff Cake",
                 "Spiced sponge infused with crushed Lotus biscuits, salted caramel drizzle, and speculoos frosting.",
-                36.50,
+                6200.00,
                 "https://images.unsplash.com/photo-1535141192574-5d4897c13136?w=800&auto=format&fit=crop&q=80",
                 10, "Gluten, Dairy, Soy", "Salted Caramel Buttercream", 2);
         c3.setRating(5.0);
@@ -248,7 +248,7 @@ public class ProductServiceImpl implements ProductService {
 
         Cake c4 = new Cake("Velvet Royale Red Velvet Cake",
                 "Classic Southern red velvet sponge with silky cream cheese frosting and cocoa crumb crown.",
-                35.00,
+                5900.00,
                 "https://images.unsplash.com/photo-1616541823729-00fe0aacd32c?w=800&auto=format&fit=crop&q=80",
                 14, "Gluten, Eggs, Dairy", "Cream Cheese Frosting", 3);
         c4.setRating(4.7);
@@ -258,7 +258,7 @@ public class ProductServiceImpl implements ProductService {
         // 2. Pastries
         Pastry p1 = new Pastry("Parisian Pure Butter Croissant",
                 "Laminated artisan dough with 81 honeycomb butter layers baked to golden crispy perfection.",
-                4.25,
+                750.00,
                 "https://images.unsplash.com/photo-1555507036-ab1f4038808a?w=800&auto=format&fit=crop&q=80",
                 30, "Gluten, Dairy", "Croissant", true);
         p1.setRating(4.9);
@@ -267,7 +267,7 @@ public class ProductServiceImpl implements ProductService {
 
         Pastry p2 = new Pastry("Almond Frangipane Flaked Croissant",
                 "Twice-baked butter croissant loaded with almond frangipane cream and toasted sliced almonds.",
-                5.50,
+                950.00,
                 "https://images.unsplash.com/photo-1509440159596-0249088772ff?w=800&auto=format&fit=crop&q=80",
                 25, "Gluten, Dairy, Tree Nuts (Almonds)", "Filled Croissant", true);
         p2.setRating(4.8);
@@ -276,7 +276,7 @@ public class ProductServiceImpl implements ProductService {
 
         Pastry p3 = new Pastry("Valrhona Dark Pain au Chocolat",
                 "Crisp laminated French pastry encasing two generous batons of 70% dark Valrhona chocolate.",
-                4.80,
+                850.00,
                 "https://images.unsplash.com/photo-1608198093002-ad4e005484ec?w=800&auto=format&fit=crop&q=80",
                 28, "Gluten, Dairy, Soy", "Pain au Chocolat", true);
         p3.setRating(4.9);
@@ -285,7 +285,7 @@ public class ProductServiceImpl implements ProductService {
 
         Pastry p4 = new Pastry("Wild Raspberry & Pistachio Tartlet",
                 "Pâte sablée tart shell filled with creamy pistachio mousseline and fresh mountain raspberries.",
-                6.20,
+                1150.00,
                 "https://images.unsplash.com/photo-1519915028121-7d3463d20b13?w=800&auto=format&fit=crop&q=80",
                 18, "Gluten, Dairy, Tree Nuts (Pistachio), Eggs", "Fruit Tart", false);
         p4.setRating(4.8);
@@ -295,7 +295,7 @@ public class ProductServiceImpl implements ProductService {
         // 3. Breads
         Bread b1 = new Bread("San Francisco Style Country Sourdough",
                 "Slow-fermented for 36 hours with our century-old starter. Crisp blistered crust and airy custard crumb.",
-                7.50,
+                1450.00,
                 "https://images.unsplash.com/photo-1589367920969-ab8e050bbb04?w=800&auto=format&fit=crop&q=80",
                 22, "Gluten", 800, true);
         b1.setRating(4.9);
@@ -304,7 +304,7 @@ public class ProductServiceImpl implements ProductService {
 
         Bread b2 = new Bread("Rosemary & Kalamata Olive Hearth Loaf",
                 "Rustic country sourdough packed with Greek Kalamata olives and garden-fresh wild rosemary.",
-                8.25,
+                1650.00,
                 "https://images.unsplash.com/photo-1509440159596-0249088772ff?w=800&auto=format&fit=crop&q=80",
                 16, "Gluten", 750, true);
         b2.setRating(4.8);
@@ -313,7 +313,7 @@ public class ProductServiceImpl implements ProductService {
 
         Bread b3 = new Bread("Parisian Golden Crust Baguette",
                 "Traditional poolish fermented French baguette with a paper-thin crisp crust and open crumb.",
-                3.90,
+                650.00,
                 "https://images.unsplash.com/photo-1598373182133-52452f7691ef?w=800&auto=format&fit=crop&q=80",
                 35, "Gluten", 350, false);
         b3.setRating(4.7);

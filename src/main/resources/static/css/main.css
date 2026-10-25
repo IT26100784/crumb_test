@@ -791,3 +791,252 @@ textarea.form-control {
     opacity: 1;
     transform: translateY(0);
 }
+
+/* ==========================================================================
+   CUSTOM DARK LUXURY GLASS CALENDAR & DROPDOWN STYLES
+   ========================================================================== */
+.custom-date-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+.custom-date-icon {
+    position: absolute;
+    right: 14px;
+    color: var(--color-accent);
+    font-size: 1.05rem;
+    pointer-events: none;
+    transition: transform var(--transition-fast);
+}
+.custom-date-wrapper input[type="date"] {
+    cursor: pointer;
+    padding-right: 2.6rem;
+}
+.custom-date-wrapper:hover .custom-date-icon {
+    transform: scale(1.1);
+}
+
+.glass-calendar-popup {
+    position: absolute;
+    z-index: 100000;
+    width: 320px;
+    background: rgba(22, 22, 22, 0.95);
+    backdrop-filter: blur(28px) saturate(180%);
+    -webkit-backdrop-filter: blur(28px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    border-radius: 22px;
+    padding: 1.25rem;
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.85), inset 0 1px 0 rgba(255, 255, 255, 0.15), 0 0 30px rgba(214, 144, 85, 0.15);
+    color: var(--text-primary);
+    animation: calFadeSlide 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+@keyframes calFadeSlide {
+    from { opacity: 0; transform: translateY(-8px) scale(0.96); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
+}
+.calendar-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+    padding-bottom: 0.6rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+.cal-month-year {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 1.05rem;
+    color: var(--text-primary);
+    letter-spacing: -0.01em;
+}
+.cal-nav-btn {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: var(--text-secondary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 0.82rem;
+    transition: all var(--transition-fast);
+}
+.cal-nav-btn:hover {
+    background: var(--color-accent);
+    color: #FFFFFF;
+    border-color: var(--color-accent);
+    transform: scale(1.08);
+}
+.cal-weekdays {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    text-align: center;
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--color-accent);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-bottom: 0.5rem;
+}
+.cal-days-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 4px;
+}
+.cal-day {
+    aspect-ratio: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.88rem;
+    font-weight: 500;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    color: var(--text-primary);
+}
+.cal-day.empty {
+    cursor: default;
+}
+.cal-day:hover:not(.disabled):not(.empty) {
+    background: rgba(214, 144, 85, 0.2);
+    color: var(--color-accent);
+    transform: scale(1.08);
+}
+.cal-day.today {
+    border: 1.5px solid rgba(214, 144, 85, 0.45);
+    font-weight: 700;
+}
+.cal-day.selected {
+    background: linear-gradient(135deg, var(--color-accent), var(--color-accent-dark)) !important;
+    color: #FFFFFF !important;
+    font-weight: 700;
+    box-shadow: 0 4px 12px rgba(214, 144, 85, 0.45);
+}
+.cal-day.disabled {
+    opacity: 0.25;
+    cursor: not-allowed;
+    color: var(--text-muted);
+}
+
+/* Custom Select Dropdowns */
+.custom-select-wrapper {
+    position: relative;
+    width: 100%;
+}
+.custom-select-trigger {
+    width: 100%;
+    padding: 0.75rem 1.15rem;
+    border-radius: var(--radius-md);
+    background: var(--bg-surface);
+    border: 1.5px solid var(--border-color);
+    color: var(--text-primary);
+    font-family: var(--font-body);
+    font-size: 0.92rem;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    outline: none;
+    text-align: left;
+}
+.custom-select-trigger:hover, .custom-select-trigger.active {
+    border-color: var(--color-accent);
+    box-shadow: 0 0 0 3px rgba(214, 144, 85, 0.18);
+    background: rgba(255, 255, 255, 0.05);
+}
+.select-chevron {
+    color: var(--color-accent);
+    font-size: 0.85rem;
+    transition: transform var(--transition-normal);
+}
+.custom-select-trigger.active .select-chevron {
+    transform: rotate(180deg);
+}
+.custom-select-menu {
+    position: absolute;
+    top: calc(100% + 6px);
+    left: 0;
+    right: 0;
+    z-index: 9999;
+    background: rgba(24, 24, 24, 0.96);
+    backdrop-filter: blur(24px) saturate(160%);
+    -webkit-backdrop-filter: blur(24px) saturate(160%);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 16px;
+    padding: 0.5rem;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    max-height: 260px;
+    overflow-y: auto;
+    display: none;
+    animation: selectMenuDrop 0.22s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+.custom-select-menu.active {
+    display: block;
+}
+@keyframes selectMenuDrop {
+    from { opacity: 0; transform: translateY(-6px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+.custom-select-option {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.65rem 0.95rem;
+    border-radius: 10px;
+    font-size: 0.88rem;
+    color: var(--text-secondary);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+.custom-select-option:hover {
+    background: rgba(214, 144, 85, 0.15);
+    color: #FFFFFF;
+}
+.custom-select-option.active {
+    background: rgba(214, 144, 85, 0.22);
+    color: var(--color-accent);
+    font-weight: 700;
+}
+.select-check {
+    font-size: 0.78rem;
+    opacity: 0;
+    color: var(--color-accent);
+}
+.custom-select-option.active .select-check {
+    opacity: 1;
+}
+
+/* Product ID & Customer ID Badges */
+.product-id-tag {
+    font-size: 0.72rem;
+    font-family: monospace;
+    font-weight: 700;
+    color: var(--color-accent);
+    background: rgba(214, 144, 85, 0.12);
+    border: 1px solid rgba(214, 144, 85, 0.25);
+    padding: 0.15rem 0.45rem;
+    border-radius: 6px;
+    letter-spacing: 0.04em;
+    display: inline-flex;
+    align-items: center;
+    width: fit-content;
+}
+.customer-id-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    background: rgba(214, 144, 85, 0.14);
+    border: 1px solid rgba(214, 144, 85, 0.3);
+    color: var(--color-accent);
+    padding: 0.35rem 0.85rem;
+    border-radius: var(--radius-full);
+    font-size: 0.82rem;
+    font-weight: 600;
+    font-family: var(--font-body);
+}

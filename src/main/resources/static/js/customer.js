@@ -197,6 +197,11 @@ const CustomerAuth = {
             el.textContent = user.fullName ? user.fullName.split(' ')[0] : 'Foodie';
         });
 
+        // Set customer ID badge on user profile buttons
+        document.querySelectorAll('.open-profile-btn').forEach(btn => {
+            btn.title = `Customer ID: #CUST-0${user.id}`;
+        });
+
         const isVip = (user.customerType === 'PREMIUM' || user.tier === 'PREMIUM');
         document.querySelectorAll('.vip-badge-display').forEach(el => {
             el.innerHTML = isVip
@@ -352,6 +357,12 @@ const CustomerAuth = {
             form.phoneNumber.value = user.phone || user.phoneNumber || '';
             form.deliveryAddress.value = user.address || user.deliveryAddress || '';
             if (form.password) form.password.value = '';
+        }
+
+        // Render Customer ID Pill
+        const custIdContainer = document.getElementById('profile-customer-id');
+        if (custIdContainer) {
+            custIdContainer.innerHTML = `<span class="customer-id-pill"><i class="fa-solid fa-id-badge"></i> Customer ID: #CUST-0${user.id}</span>`;
         }
 
         // Show VIP perks info

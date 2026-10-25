@@ -607,45 +607,217 @@
 }
 
 /* Cake 2D Graphic Visualizer */
+/* Realistic 3D Aesthetic Cake Visualizer Studio */
 .cake-stage {
     position: relative;
-    width: 280px;
-    height: 320px;
+    width: 310px;
+    height: 350px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    padding-bottom: 25px;
+    perspective: 850px;
+}
+.cake-plate {
+    position: relative;
+    width: 290px;
+    height: 22px;
+    background: radial-gradient(ellipse at 50% 30%, #3a3a3a 0%, #1a1a1a 80%);
+    border-radius: 50%;
+    box-shadow: 0 16px 36px rgba(0, 0, 0, 0.9), inset 0 2px 4px rgba(255, 255, 255, 0.3);
+    border: 2px solid #D69055;
+    z-index: 2;
+    margin-top: -12px;
+}
+.cake-plate::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 260px;
+    height: 14px;
+    border-radius: 50%;
+    border: 1px dashed rgba(214, 144, 85, 0.45);
+    pointer-events: none;
+}
+#cake-stage-layers {
+    position: relative;
+    width: 100%;
     display: flex;
     flex-direction: column-reverse;
     align-items: center;
-    justify-content: flex-start;
-    padding-bottom: 20px;
+    transform-style: preserve-3d;
+    transform: rotateX(8deg);
+    transition: transform 0.4s ease;
+    z-index: 5;
 }
-.cake-plate {
-    width: 260px;
-    height: 18px;
-    background: linear-gradient(180deg, #E8E5DD, #C9C4B7);
-    border-radius: var(--radius-full);
-    box-shadow: 0 8px 16px rgba(0,0,0,0.15);
-    z-index: 1;
+.cake-stage:hover #cake-stage-layers {
+    transform: rotateX(4deg) translateY(-4px);
 }
-.cake-layer {
-    background: #5C2C16;
-    border-radius: 12px 12px 6px 6px;
-    margin-bottom: -4px;
+
+/* Realistic 3D Tier Architecture */
+.realistic-tier {
     position: relative;
-    transition: all var(--transition-normal);
-    box-shadow: inset 0 3px 6px rgba(255,255,255,0.2), 0 4px 10px rgba(0,0,0,0.15);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: -16px;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    z-index: 10;
+}
+.tier-cap {
+    width: 100%;
+    height: 28px;
+    border-radius: 50%;
+    margin-bottom: -14px;
+    z-index: 3;
+    position: relative;
+    box-shadow: inset 0 2px 5px rgba(255, 255, 255, 0.35);
+}
+.tier-body {
+    width: 100%;
+    position: relative;
+    border-radius: 0 0 50% 50% / 0 0 14px 14px;
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.6), inset 0 -4px 8px rgba(0, 0, 0, 0.6);
+    overflow: hidden;
     z-index: 2;
 }
-.cake-layer-1 { width: 220px; height: 60px; }
-.cake-layer-2 { width: 170px; height: 55px; }
-.cake-layer-3 { width: 125px; height: 50px; }
-.cake-layer-4 { width: 90px; height: 45px; }
-.cake-layer-5 { width: 65px; height: 40px; }
 
-.cake-topping-ornament {
+/* Tier Sizing */
+.tier-1 { width: 230px; }
+.tier-1 .tier-body { height: 72px; }
+.tier-2 { width: 180px; }
+.tier-2 .tier-body { height: 64px; }
+.tier-3 { width: 135px; }
+.tier-3 .tier-body { height: 56px; }
+.tier-4 { width: 100px; }
+.tier-4 .tier-body { height: 48px; }
+.tier-5 { width: 72px; }
+.tier-5 .tier-body { height: 42px; }
+
+/* Pearl Piping Border between tiers */
+.pearl-bead-row {
     position: absolute;
-    top: -24px;
-    font-size: 1.6rem;
+    bottom: -3px;
+    left: 4px;
+    right: 4px;
+    height: 6px;
+    background: radial-gradient(circle at 50% 30%, #FFF 20%, rgba(255,255,255,0.35) 60%, transparent 100%) repeat-x;
+    background-size: 8px 6px;
+    z-index: 4;
+}
+
+/* Realistic Glossy Ganache / Caramel Drips */
+.realistic-drip {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 28px;
+    pointer-events: none;
+    z-index: 4;
+}
+.drip-drops {
+    position: absolute;
+    top: 4px;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+.drip-drop {
+    width: 6px;
+    border-radius: 0 0 4px 4px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+
+/* Gold Flakes */
+.gold-leaf-flake {
+    position: absolute;
+    background: linear-gradient(135deg, #FFE066, #D4AF37, #996515);
+    border-radius: 2px;
+    filter: drop-shadow(0 1px 2px rgba(0,0,0,0.4));
+    animation: goldShimmer 3s infinite alternate;
+}
+@keyframes goldShimmer {
+    0% { opacity: 0.7; transform: scale(0.95); }
+    100% { opacity: 1; transform: scale(1.05); }
+}
+
+/* Fondant Script Ribbon Inscription Plaque */
+.fondant-ribbon-plaque {
+    position: absolute;
+    bottom: 14px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(240, 235, 225, 0.96));
+    border: 1px solid rgba(214, 144, 85, 0.6);
+    border-radius: 12px;
+    padding: 3px 14px;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.45);
     z-index: 10;
-    animation: bounceOrnament 2s infinite ease-in-out;
+    white-space: nowrap;
+    max-width: 85%;
+    text-align: center;
+}
+.fondant-ribbon-plaque span {
+    font-family: var(--font-script);
+    color: #4A2311;
+    font-weight: 700;
+    font-size: 0.95rem;
+    letter-spacing: 0.02em;
+}
+
+/* Realistic Lit Candle */
+.realistic-candle {
+    position: absolute;
+    top: -46px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 20;
+}
+.candle-wick {
+    width: 2px;
+    height: 8px;
+    background: #111;
+}
+.candle-stick {
+    width: 7px;
+    height: 34px;
+    background: linear-gradient(90deg, #D69055, #FFE4B5, #BA753D);
+    border-radius: 3px 3px 1px 1px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+}
+.candle-flame {
+    width: 10px;
+    height: 18px;
+    background: radial-gradient(ellipse at 50% 80%, #FFFFFF 0%, #FFD700 40%, #FF4500 85%, transparent 100%);
+    border-radius: 50% 50% 35% 35% / 60% 60% 40% 40%;
+    box-shadow: 0 0 16px rgba(255, 165, 0, 0.9), 0 0 30px rgba(255, 69, 0, 0.5);
+    animation: realisticFlicker 1.8s infinite alternate ease-in-out;
+}
+@keyframes realisticFlicker {
+    0% { transform: scale(1) rotate(-1deg); }
+    30% { transform: scale(1.08, 0.95) rotate(1.5deg); }
+    70% { transform: scale(0.95, 1.05) rotate(-1deg); }
+    100% { transform: scale(1.04, 1) rotate(2deg); }
+}
+
+/* Floral Bouquet Topper */
+.realistic-florals {
+    position: absolute;
+    top: -38px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 20;
+    filter: drop-shadow(0 4px 8px rgba(0,0,0,0.5));
+}
+.realistic-florals svg {
+    width: 58px;
+    height: 42px;
 }
 @keyframes bounceOrnament {
     0%, 100% { transform: translateY(0); }

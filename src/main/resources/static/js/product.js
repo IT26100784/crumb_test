@@ -196,6 +196,7 @@ const ProductCatalog = {
                     </div>
                     <div class="product-body">
                         <div class="product-meta-row">
+                            <span class="product-id-tag">#PRD-0${product.id}</span>
                             <span class="product-rating">
                                 <i class="fa-solid fa-star"></i> ${product.rating ? product.rating.toFixed(1) : '5.0'} (${product.reviewCount || 12})
                             </span>
@@ -229,7 +230,7 @@ const ProductCatalog = {
 
         document.getElementById('qv-img').src = product.imageUrl;
         document.getElementById('qv-title').textContent = product.name;
-        document.getElementById('qv-category').textContent = product.category || product.productType;
+        document.getElementById('qv-category').innerHTML = `${product.category || product.productType} &bull; <span class="product-id-tag" style="margin-left: 6px;">ID: #PRD-0${product.id}</span>`;
         document.getElementById('qv-desc').textContent = product.description;
         document.getElementById('qv-price').textContent = Crumb.formatCurrency(product.basePrice);
         document.getElementById('qv-allergens').textContent = product.allergens || 'None reported';
@@ -376,7 +377,10 @@ const ProductCatalog = {
             <div class="cart-item-row">
                 <img class="cart-item-thumb" src="${item.imageUrl}" alt="${item.name}">
                 <div class="cart-item-info">
-                    <h5 class="cart-item-name">${item.name}</h5>
+                    <div style="display: flex; align-items: center; justify-content: space-between; gap: 0.5rem;">
+                        <h5 class="cart-item-name">${item.name}</h5>
+                        <span class="product-id-tag" style="font-size: 0.65rem; padding: 0.1rem 0.35rem;">#PRD-0${item.id}</span>
+                    </div>
                     <div class="cart-item-price">${Crumb.formatCurrency(item.basePrice)} each</div>
                     <div class="cart-item-qty-row">
                         <button class="qty-btn" onclick="ProductCatalog.updateCartItemQuantity(${item.id}, -1)">-</button>

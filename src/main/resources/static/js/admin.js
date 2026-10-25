@@ -199,7 +199,7 @@ const AdminPortal = {
         tbody.innerHTML = orders.map(o => `
             <tr>
                 <td><strong>#${o.orderNumber}</strong></td>
-                <td>${o.customerName}</td>
+                <td>${o.customerName} ${o.customerId ? `<br><small class="customer-id-pill" style="font-size:0.7rem; padding:1px 6px;"><i class="fa-solid fa-id-badge"></i> #CUST-0${o.customerId}</small>` : ''}</td>
                 <td>${o.fulfillmentType}</td>
                 <td>${Crumb.formatCurrency(o.finalTotal)}</td>
                 <td><span class="badge ${o.status === 'DELIVERED' ? 'badge-success' : 'badge-warning'}">${o.status}</span></td>
@@ -236,7 +236,10 @@ const AdminPortal = {
                 <td>
                     <img src="${p.imageUrl}" alt="${p.name}" style="width:48px; height:48px; object-fit:cover; border-radius:var(--radius-sm);">
                 </td>
-                <td><strong>${p.name}</strong><br><small style="color:var(--text-muted);">${p.category || p.productType}</small></td>
+                <td>
+                    <span class="product-id-tag">#PRD-0${p.id}</span>
+                    <strong>${p.name}</strong><br><small style="color:var(--text-muted);">${p.category || p.productType}</small>
+                </td>
                 <td><span class="badge badge-cake">${p.productType}</span></td>
                 <td><strong>${Crumb.formatCurrency(p.basePrice)}</strong></td>
                 <td>${p.stockQuantity}</td>
@@ -393,7 +396,7 @@ const AdminPortal = {
         tbody.innerHTML = orders.map(o => `
             <tr>
                 <td><strong>#${o.orderNumber}</strong></td>
-                <td>${o.customerName}</td>
+                <td>${o.customerName} ${o.customerId ? `<br><small class="customer-id-pill" style="font-size:0.7rem; padding:1px 6px;"><i class="fa-solid fa-id-badge"></i> #CUST-0${o.customerId}</small>` : ''}</td>
                 <td>${o.fulfillmentType}</td>
                 <td>${o.items ? o.items.length : 0} item(s)</td>
                 <td><strong>${Crumb.formatCurrency(o.finalTotal)}</strong></td>
@@ -588,7 +591,7 @@ const AdminPortal = {
 
         tbody.innerHTML = customers.map(c => `
             <tr>
-                <td><strong>${c.fullName}</strong></td>
+                <td><span class="customer-id-pill" style="font-size:0.72rem; margin-right:4px;"><i class="fa-solid fa-id-badge"></i> #CUST-0${c.id}</span> <strong>${c.fullName}</strong></td>
                 <td>${c.email}</td>
                 <td>${c.phoneNumber || 'N/A'}</td>
                 <td>

@@ -42,24 +42,26 @@ public class BirthdayCake extends CustomCake {
     // POLYMORPHISM
     @Override
     public double calculateEstimatedPrice() {
-        double price = 55.00; // Base 6-inch
+        double price = 5500.00; // Base 6-inch
 
         String size = getSizeTiers() != null ? getSizeTiers().toLowerCase() : "";
-        if (size.contains("8-inch")) price = 75.00;
-        else if (size.contains("10-inch")) price = 95.00;
-        else if (size.contains("2-tier")) price = 145.00;
-        else if (size.contains("3-tier")) price = 210.00;
+        if (size.contains("8-inch") || size.contains("1")) price = 6500.00;
+        else if (size.contains("10-inch")) price = 8500.00;
+        else if (size.contains("2-tier") || size.contains("2")) price = 12500.00;
+        else if (size.contains("3-tier") || size.contains("3")) price = 21000.00;
+        else if (size.contains("4")) price = 32000.00;
+        else if (size.contains("5")) price = 45000.00;
 
         if (getFrosting() != null && getFrosting().toLowerCase().contains("fondant")) {
-            price += 25.00;
+            price += 1800.00;
         }
 
         if (candleSetIncluded) {
-            price += 5.00;
+            price += 450.00;
         }
 
         if (getInscription() != null && !getInscription().trim().isEmpty()) {
-            price += 4.00;
+            price += 300.00;
         }
 
         return Math.round(price * 100.0) / 100.0;

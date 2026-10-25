@@ -43,24 +43,24 @@ public class WeddingCake extends CustomCake {
     // POLYMORPHISM
     @Override
     public double calculateEstimatedPrice() {
-        double price = 160.00; // Base 2-tier wedding cake
+        double price = 18000.00; // Base 2-tier wedding cake
 
         if (tierCount >= 4) {
-            price = 380.00;
+            price = 45000.00;
         } else if (tierCount == 3) {
-            price = 270.00;
+            price = 28000.00;
         }
 
         if (freshFlorals) {
-            price += 45.00; // Sugar flowers and organic pesticide-free floral cascade
+            price += 3500.00; // Sugar flowers and organic pesticide-free floral cascade
         }
 
         if (tastingKitOrdered) {
-            price += 25.00; // Sample box delivered to couple prior to event
+            price += 2500.00; // Sample box delivered to couple prior to event
         }
 
         if (getFrosting() != null && getFrosting().toLowerCase().contains("fondant")) {
-            price += 40.00; // Hand-smoothed luxury satin fondant
+            price += 2800.00; // Hand-smoothed luxury satin fondant
         }
 
         return Math.round(price * 100.0) / 100.0;
