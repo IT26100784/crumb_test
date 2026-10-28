@@ -1,0 +1,1193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crumb | Artisan Bakery &amp; Bespoke Custom Cakes</title>
+    <meta name="description" content="Crumb is an artisan bakery crafting fresh wild-yeast sourdoughs, delicate French pastries, and bespoke celebration cakes in Colombo, Sri Lanka.">
+    
+    <!-- Google Fonts: Playfair Display, Alex Brush & Plus Jakarta Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="/css/variables.css">
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/storefront.css">
+</head>
+<body>
+
+    <!-- Top Utility Bar (Promo & Catering Hotline Matching Reference) -->
+    <div class="top-utility-bar">
+        <div class="container top-utility-container">
+            <div class="top-utility-promo">
+                <span>Subscribe to get 20% off your first order.</span>
+            </div>
+            <div class="top-utility-contact">
+                <span>Catering: <a href="tel:+94728909091">+94 (072) 890 9091</a></span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sticky Glass Header / Navbar -->
+    <header class="header" id="main-header">
+        <div class="container nav-container">
+            <!-- Brand Logo -->
+            <a href="#home" class="brand-logo">
+                <div class="brand-text">Crumb<span class="brand-dot">.</span></div>
+            </a>
+
+            <!-- Navigation Links -->
+            <ul class="nav-links">
+                <li><a href="#catalog" class="nav-link" data-category-filter="BREAD">Our Bread</a></li>
+                <li><a href="#catalog" class="nav-link" data-category-filter="PASTRY">Sweet Treats</a></li>
+                <li><a href="#cake-builder" class="nav-link">Custom Cakes</a></li>
+                <li><a href="#about" class="nav-link">Our Story</a></li>
+                <li><a href="#tracking" class="nav-link">Track Order</a></li>
+                <li><a href="#contacts" class="nav-link">Contacts</a></li>
+            </ul>
+
+            <!-- Navigation Actions -->
+            <div class="nav-actions">
+
+                <!-- Theme Toggle Button (Dark / Light) -->
+                <button class="theme-toggle-btn" title="Toggle Dark/Light Mode" aria-label="Toggle theme">
+                    <i class="fa-solid fa-moon"></i>
+                </button>
+
+                <!-- Cart Button with Live Badge -->
+                <div class="cart-btn-wrapper">
+                    <button class="cart-trigger-btn" aria-label="View Shopping Cart">
+                        <i class="fa-solid fa-basket-shopping"></i>
+                        <span class="cart-badge" style="display: none;">0</span>
+                    </button>
+                </div>
+
+                <!-- Guest Login Button -->
+                <div class="guest-only">
+                    <button class="btn btn-primary btn-sm open-auth-btn" data-default-tab="login-tab">
+                        <i class="fa-solid fa-user"></i> Sign In
+                    </button>
+                </div>
+
+                <!-- Authenticated User Dropdown -->
+                <div class="user-only" style="display: none; align-items: center; gap: 0.6rem;">
+                    <button class="btn btn-outline btn-sm open-profile-btn" style="border-radius: var(--radius-full); padding: 0.4rem 0.9rem;">
+                        <i class="fa-solid fa-circle-user"></i> <span class="user-display-name">Foodie</span>
+                    </button>
+                    <!-- Admin Shortcut Button -->
+                    <a href="/admin.html" class="btn btn-accent btn-sm admin-only" style="display: none;" title="Open Admin Portal">
+                        <i class="fa-solid fa-gauge-high"></i> Admin
+                    </a>
+                    <button class="btn btn-outline btn-sm logout-btn" title="Sign Out">
+                        <i class="fa-solid fa-right-from-bracket"></i>
+                    </button>
+                </div>
+
+                <!-- Mobile Hamburger Toggle -->
+                <button class="hamburger-btn" id="mobile-menu-toggle" aria-label="Toggle Mobile Menu">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section Matching Reference Image -->
+    <section class="hero-section" id="home">
+        <div class="container hero-container">
+            <div class="hero-grid">
+                <div class="hero-content reveal">
+                    <!-- Script Cursive Flourish -->
+                    <div class="hero-script-eyebrow">Crumb</div>
+                    
+                    <h1 class="hero-headline">
+                        Welcome to Our<br>
+                        Artisan Bakery<span class="hero-dot">.</span>
+                    </h1>
+                    
+                    <p class="hero-subtext">
+                        We are based in Colombo and bake fresh artisan sourdough bread and French pastry every dawn.
+                    </p>
+
+                    <div class="hero-cta-group">
+                        <a href="#catalog" class="btn btn-primary btn-lg">
+                            <i class="fa-solid fa-wheat-awn"></i> Order Fresh Bakes
+                        </a>
+                        <a href="#cake-builder" class="btn btn-outline btn-lg">
+                            <i class="fa-solid fa-wand-magic-sparkles"></i> Design Custom Cake
+                        </a>
+                    </div>
+
+                    <!-- 3 Location Pins from Reference Screenshot -->
+                    <div class="hero-locations-bar">
+                        <div class="hero-location-item">
+                            <i class="fa-solid fa-location-dot location-icon"></i>
+                            <span>No. 42, Galle Road, Colombo 03 (Kollupitiya)</span>
+                        </div>
+                        <div class="hero-location-item">
+                            <i class="fa-solid fa-location-dot location-icon"></i>
+                            <span>No. 18, Ward Place, Colombo 07 (Cinnamon Gardens)</span>
+                        </div>
+                        <div class="hero-location-item">
+                            <i class="fa-solid fa-location-dot location-icon"></i>
+                            <span>No. 125, Kandy Road, Pelawatte, Battaramulla</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Visual: Baker with rustic sourdough -->
+                <div class="hero-visual reveal">
+                    <div class="hero-baker-wrapper">
+                        <img src="/images/hero-baker.jpg" alt="Crumb Artisan Baker holding sourdough loaf" class="hero-baker-img">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Value Highlights / About Section Matching Reference -->
+    <section class="features-section" id="about">
+        <div class="container">
+            <div class="section-header reveal">
+                <div class="section-script-eyebrow">About us</div>
+                <h2 class="section-title">Crafting Delicious Memories Every Day</h2>
+                <p>We honor the time-tested tradition of slow fermentation, wild sourdough starters, and pure heritage flours milled locally.</p>
+            </div>
+
+            <div class="features-grid">
+                <div class="feature-card reveal">
+                    <div class="feature-icon"><i class="fa-solid fa-seedling"></i></div>
+                    <h4>Crafted From Scratch</h4>
+                    <p>Pure French butter, Valrhona cocoa, and locally milled non-GMO heritage flours.</p>
+                </div>
+                <div class="feature-card reveal">
+                    <div class="feature-icon"><i class="fa-solid fa-clock"></i></div>
+                    <h4>36-Hour Fermentation</h4>
+                    <p>Naturally leavened wild sourdough loaves packed with complex flavor and gut vitality.</p>
+                </div>
+                <div class="feature-card reveal">
+                    <div class="feature-icon"><i class="fa-solid fa-cake-candles"></i></div>
+                    <h4>Bespoke Custom Cakes</h4>
+                    <p>Design your dream birthday or wedding masterpiece with our interactive 3D builder.</p>
+                </div>
+                <div class="feature-card reveal">
+                    <div class="feature-icon"><i class="fa-solid fa-truck-fast"></i></div>
+                    <h4>Chilled White-Glove Delivery</h4>
+                    <p>Temperature-controlled doorstep dispatch guaranteed to arrive bakery-fresh.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Product Catalog Section -->
+    <section class="catalog-section" id="catalog">
+        <div class="container">
+            <div class="section-header reveal">
+                <div class="section-script-eyebrow">Our Menu</div>
+                <h2 class="section-title">Explore the Artisan Menu</h2>
+                <p>Baked in small batches every morning at dawn. Choose from decadent dessert cakes, flaky French viennoiserie, or crusty artisan hearth breads.</p>
+            </div>
+
+            <!-- Filter & Search Toolbar -->
+            <div class="catalog-toolbar reveal">
+                <div class="category-chips">
+                    <button class="category-chip active" data-category="ALL">All Treats</button>
+                    <button class="category-chip" data-category="CAKE"><i class="fa-solid fa-cake-candles"></i> Cakes</button>
+                    <button class="category-chip" data-category="PASTRY"><i class="fa-solid fa-cookie-bite"></i> Pastries</button>
+                    <button class="category-chip" data-category="BREAD"><i class="fa-solid fa-bread-slice"></i> Hearth Breads</button>
+                </div>
+
+                <div class="search-sort-group">
+                    <div class="search-input-wrapper">
+                        <i class="fa-solid fa-magnifying-glass search-icon"></i>
+                        <input type="text" id="catalog-search-input" class="search-input" placeholder="Search cakes, sourdough, croissants...">
+                    </div>
+                    <select id="catalog-sort-select" class="sort-select" aria-label="Sort products">
+                        <option value="rating">Top Rated</option>
+                        <option value="price-asc">Price: Low to High</option>
+                        <option value="price-desc">Price: High to Low</option>
+                        <option value="name">Name: A to Z</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Products Grid Container (Static Mockup Prototype) -->
+            <div class="products-grid" id="products-grid">
+                <div class="product-card reveal revealed">
+                    <div class="product-media">
+                        <span class="badge badge-cake product-badge-float">CAKE</span>
+                        <img class="product-img" src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=600&auto=format&fit=crop&q=80" alt="Triple Belgian Chocolate Fudge Cake">
+                    </div>
+                    <div class="product-body">
+                        <div class="product-meta-row">
+                            <span class="product-rating"><i class="fa-solid fa-star"></i> 5.0 (42)</span>
+                            <span>In Stock</span>
+                        </div>
+                        <h4 class="product-title">Triple Belgian Chocolate Fudge Cake</h4>
+                        <p class="product-desc">Layers of rich dark chocolate sponge smothered with velvety Belgian chocolate ganache.</p>
+                        <div class="product-footer">
+                            <div class="product-price">LKR 6,500.00 <span>/ each</span></div>
+                            <button class="btn btn-primary btn-sm"><i class="fa-solid fa-cart-plus"></i> Add</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card reveal revealed">
+                    <div class="product-media">
+                        <span class="badge badge-cake product-badge-float">CAKE</span>
+                        <img class="product-img" src="https://images.unsplash.com/photo-1565958011703-44f9829ba187?w=600&auto=format&fit=crop&q=80" alt="Madagascan Vanilla Bean Sponge">
+                    </div>
+                    <div class="product-body">
+                        <div class="product-meta-row">
+                            <span class="product-rating"><i class="fa-solid fa-star"></i> 4.9 (38)</span>
+                            <span>In Stock</span>
+                        </div>
+                        <h4 class="product-title">Madagascan Vanilla Bean Sponge</h4>
+                        <p class="product-desc">Fluffy sponge infused with Bourbon vanilla bean caviar and fresh strawberry reduction.</p>
+                        <div class="product-footer">
+                            <div class="product-price">LKR 5,800.00 <span>/ each</span></div>
+                            <button class="btn btn-primary btn-sm"><i class="fa-solid fa-cart-plus"></i> Add</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card reveal revealed">
+                    <div class="product-media">
+                        <span class="badge badge-cake product-badge-float">CAKE</span>
+                        <img class="product-img" src="https://images.unsplash.com/photo-1535141192574-5d4897c13136?w=600&auto=format&fit=crop&q=80" alt="Salted Caramel Lotus Cake">
+                    </div>
+                    <div class="product-body">
+                        <div class="product-meta-row">
+                            <span class="product-rating"><i class="fa-solid fa-star"></i> 4.8 (29)</span>
+                            <span>In Stock</span>
+                        </div>
+                        <h4 class="product-title">Salted Caramel Lotus Cake</h4>
+                        <p class="product-desc">Biscoff spiced caramel sponge topped with crunchy Lotus crumble and sea-salt caramel glaze.</p>
+                        <div class="product-footer">
+                            <div class="product-price">LKR 6,200.00 <span>/ each</span></div>
+                            <button class="btn btn-primary btn-sm"><i class="fa-solid fa-cart-plus"></i> Add</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card reveal revealed">
+                    <div class="product-media">
+                        <span class="badge badge-pastry product-badge-float">PASTRY</span>
+                        <img class="product-img" src="https://images.unsplash.com/photo-1555507036-ab1f4038808a?w=600&auto=format&fit=crop&q=80" alt="Artisan Butter Croissant">
+                    </div>
+                    <div class="product-body">
+                        <div class="product-meta-row">
+                            <span class="product-rating"><i class="fa-solid fa-star"></i> 4.9 (64)</span>
+                            <span>In Stock</span>
+                        </div>
+                        <h4 class="product-title">Artisan Butter Croissant</h4>
+                        <p class="product-desc">Traditional French laminated pastry crafted with Normandy butter for 81 honeycomb layers.</p>
+                        <div class="product-footer">
+                            <div class="product-price">LKR 750.00 <span>/ each</span></div>
+                            <button class="btn btn-primary btn-sm"><i class="fa-solid fa-cart-plus"></i> Add</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card reveal revealed">
+                    <div class="product-media">
+                        <span class="badge badge-pastry product-badge-float">PASTRY</span>
+                        <img class="product-img" src="https://images.unsplash.com/photo-1549903072-7e6e0bedb7fb?w=600&auto=format&fit=crop&q=80" alt="Pain au Chocolat">
+                    </div>
+                    <div class="product-body">
+                        <div class="product-meta-row">
+                            <span class="product-rating"><i class="fa-solid fa-star"></i> 4.9 (45)</span>
+                            <span>In Stock</span>
+                        </div>
+                        <h4 class="product-title">Pain au Chocolat</h4>
+                        <p class="product-desc">Flaky laminated butter dough folded around twin batons of dark Valrhona semi-sweet chocolate.</p>
+                        <div class="product-footer">
+                            <div class="product-price">LKR 850.00 <span>/ each</span></div>
+                            <button class="btn btn-primary btn-sm"><i class="fa-solid fa-cart-plus"></i> Add</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card reveal revealed">
+                    <div class="product-media">
+                        <span class="badge badge-bread product-badge-float">BREAD</span>
+                        <img class="product-img" src="https://images.unsplash.com/photo-1589367920969-ab8e050bbb04?w=600&auto=format&fit=crop&q=80" alt="Country Sourdough Loaf">
+                    </div>
+                    <div class="product-body">
+                        <div class="product-meta-row">
+                            <span class="product-rating"><i class="fa-solid fa-star"></i> 5.0 (52)</span>
+                            <span>In Stock</span>
+                        </div>
+                        <h4 class="product-title">Country Sourdough Loaf</h4>
+                        <p class="product-desc">Hearth-baked wild-yeast sourdough proved for 36 hours with a blistered crust and open crumb.</p>
+                        <div class="product-footer">
+                            <div class="product-price">LKR 1,200.00 <span>/ each</span></div>
+                            <button class="btn btn-primary btn-sm"><i class="fa-solid fa-cart-plus"></i> Add</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Custom Cake Builder Section -->
+    <section class="cake-builder-section" id="cake-builder">
+        <div class="container">
+            <div class="section-header reveal">
+                <div class="section-script-eyebrow">Interactive Studio</div>
+                <h2 class="section-title">Design Your Bespoke Celebration Cake</h2>
+                <p>Customize every detail of your centerpiece. Our pastry chefs bring your creative vision to life with artisanal precision.</p>
+            </div>
+
+            <div class="builder-grid">
+                <!-- Visualizer & Live Price Breakdown -->
+                <div class="builder-preview-panel reveal">
+                    <h4 style="align-self: flex-start;">Live Cake Visualizer</h4>
+                    
+                    <div class="cake-stage">
+                        <div class="cake-plate"></div>
+                        <div id="cake-stage-layers" style="display: flex; flex-direction: column-reverse; align-items: center;">
+                            <!-- Dynamically updated by customcake.js -->
+                        </div>
+                    </div>
+
+                    <div style="font-family: var(--font-heading); font-size: 1.15rem; font-style: italic; color: var(--color-primary); min-height: 28px;" id="cake-preview-inscription">
+                        "Happy Birthday!"
+                    </div>
+
+                    <!-- Live Breakdown Card -->
+                    <div class="builder-summary-card">
+                        <div class="summary-line">
+                            <span style="color: var(--text-muted);">Cake Style:</span>
+                            <span id="breakdown-type-label" style="font-weight: 700;">BIRTHDAY</span>
+                        </div>
+                        <div class="summary-line">
+                            <span style="color: var(--text-muted);">Tiers & Size:</span>
+                            <span id="breakdown-tiers-label" style="font-weight: 700;">2 Tiers (30 Slices)</span>
+                        </div>
+                        <div class="summary-line summary-total">
+                            <span>Estimated Total:</span>
+                            <span id="builder-total-price">LKR 12,500.00</span>
+                        </div>
+                    </div>
+
+                    <button class="btn btn-accent btn-lg" id="submit-custom-cake-btn" style="width: 100%;">
+                        <i class="fa-solid fa-wand-magic-sparkles"></i> Book Bespoke Cake
+                    </button>
+                </div>
+
+                <!-- Customization Controls Panel -->
+                <div class="builder-form-panel reveal">
+                    <!-- Step 1: Occasion -->
+                    <h5 style="margin-bottom: 0.75rem;">1. Select Celebration Occasion</h5>
+                    <div class="cake-type-selector">
+                        <div class="cake-type-card active" data-type="BIRTHDAY">
+                            <i class="fa-solid fa-cake-candles"></i>
+                            <h5>Birthday Cake</h5>
+                            <small style="color: var(--text-muted);">Candles & Confetti</small>
+                        </div>
+                        <div class="cake-type-card" data-type="WEDDING">
+                            <i class="fa-solid fa-heart"></i>
+                            <h5>Wedding Cake</h5>
+                            <small style="color: var(--text-muted);">Florals & Multi-Tiers</small>
+                        </div>
+                        <div class="cake-type-card" data-type="CELEBRATION">
+                            <i class="fa-solid fa-champagne-glasses"></i>
+                            <h5>Celebration Cake</h5>
+                            <small style="color: var(--text-muted);">Gold Leaf & Monogram</small>
+                        </div>
+                    </div>
+
+                    <!-- Step 2: Flavor Selection -->
+                    <h5 style="margin-bottom: 0.75rem;">2. Choose Sponge & Filling Flavor</h5>
+                    <div class="flavor-grid">
+                        <div class="flavor-chip active" data-flavor="Belgian Chocolate Fudge">🍫 Dark Belgian</div>
+                        <div class="flavor-chip" data-flavor="Tahitian Vanilla Bean">🍨 Vanilla Bean</div>
+                        <div class="flavor-chip" data-flavor="Velvet Royale">🍰 Red Velvet</div>
+                        <div class="flavor-chip" data-flavor="Salted Caramel Lotus">🍮 Salted Caramel</div>
+                        <div class="flavor-chip" data-flavor="Matcha White Chocolate">🍵 Matcha Pistachio</div>
+                    </div>
+
+                    <!-- Step 3: Tiers -->
+                    <div class="form-group">
+                        <label class="form-label" for="cake-tiers-select">3. Number of Tiers</label>
+                        <select id="cake-tiers-select" class="form-select">
+                            <option value="1">1 Tier - Serves 12 to 15 dessert portions</option>
+                            <option value="2" selected>2 Tiers - Serves 25 to 30 portions (Most Popular)</option>
+                            <option value="3">3 Tiers - Serves 50 to 60 portions (Grand Events)</option>
+                            <option value="4">4 Tiers - Serves 80 to 100 portions</option>
+                            <option value="5">5 Tiers - Serves 120+ portions (Royal Wedding)</option>
+                        </select>
+                    </div>
+
+                    <!-- Step 4: Custom Inscription Text -->
+                    <div class="form-group">
+                        <label class="form-label" for="cake-inscription-input">4. Custom Piping Message</label>
+                        <input type="text" id="cake-inscription-input" class="form-control" placeholder="e.g. Happy 25th Birthday Sarah!" value="Happy Birthday!">
+                    </div>
+
+                    <!-- Step 5: Accents & Add-ons -->
+                    <h5 style="margin-bottom: 0.75rem;">5. Artisan Accents</h5>
+                    <div style="display: flex; flex-direction: column; gap: 0.6rem; margin-bottom: 1.5rem;">
+                        <label id="opt-row-candles" style="display: flex; align-items: center; gap: 0.65rem; font-size: 0.9rem; cursor: pointer;">
+                            <input type="checkbox" id="cake-opt-candles" checked>
+                            <span>Include Festive Candle Set (+LKR 450.00)</span>
+                        </label>
+                        <label id="opt-row-floral" style="display: none; align-items: center; gap: 0.65rem; font-size: 0.9rem; cursor: pointer;">
+                            <input type="checkbox" id="cake-opt-floral">
+                            <span>Cascading Fresh Organic Florals (+LKR 2,500.00)</span>
+                        </label>
+                        <label id="opt-row-goldleaf" style="display: none; align-items: center; gap: 0.65rem; font-size: 0.9rem; cursor: pointer;">
+                            <input type="checkbox" id="cake-opt-goldleaf">
+                            <span>24k Edible Gold Leaf Accents (+LKR 3,500.00)</span>
+                        </label>
+                    </div>
+
+                    <!-- Step 6: Required Date -->
+                    <div class="form-group">
+                        <label class="form-label" for="cake-date-input">6. Required Date</label>
+                        <input type="date" id="cake-date-input" class="form-control">
+                        <small id="cake-lead-notice" style="color: var(--color-accent); font-weight: 600; margin-top: 4px;">Requires at least 2 days advance notice.</small>
+                    </div>
+
+                    <!-- Step 7: Special Kitchen Notes -->
+                    <div class="form-group">
+                        <label class="form-label" for="cake-instructions-input">7. Dietary or Dietary Instructions (Optional)</label>
+                        <textarea id="cake-instructions-input" class="form-control" placeholder="e.g. Please make eggless, use pastel ribbon decor, or gluten-conscious..."></textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Live Order Tracking Section -->
+    <section class="tracking-section" id="tracking">
+        <div class="container">
+            <div class="section-header reveal">
+                <div class="section-script-eyebrow">Kitchen Radar</div>
+                <h2 class="section-title">Track Your Bakery Order</h2>
+                <p>Follow your treats every step of the journey, from flour weighing and oven baking to doorstep delivery.</p>
+            </div>
+
+            <!-- Search Form -->
+            <form id="order-tracking-form" class="tracking-search-box reveal">
+                <input type="text" name="orderNumber" class="form-control" placeholder="Enter Order Number (e.g. ORD-20261025-1001)" required>
+                <button type="submit" class="btn btn-primary">
+                    <i class="fa-solid fa-magnifying-glass"></i> Track
+                </button>
+            </form>
+
+            <!-- Results & Timeline Container -->
+            <div id="tracking-result-panel" style="display: none;">
+                <!-- Populated via order.js -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials & Customer Reviews Section -->
+    <section class="testimonials-section" id="testimonials">
+        <div class="container">
+            <div class="section-header reveal">
+                <div class="section-script-eyebrow">Community Voices</div>
+                <h2 class="section-title">Loved by Our Community</h2>
+                <p>Read genuine reviews from local dessert lovers and party hosts.</p>
+                <div style="margin-top: 1.25rem;">
+                    <button class="btn btn-outline open-review-modal-btn">
+                        <i class="fa-solid fa-pen-nib"></i> Share Your Review
+                    </button>
+                </div>
+            </div>
+
+            <div class="testimonials-grid" id="testimonials-grid">
+                <div class="testimonial-card reveal revealed">
+                    <div class="testimonial-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                    <p class="testimonial-text">"The triple chocolate fudge cake was the star of our anniversary dinner! Deep rich cocoa without being overly sweet. Truly the finest in Colombo."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">D</div>
+                        <div>
+                            <h5 style="font-size: 0.95rem; margin-bottom: 2px;">Dilshan Perera</h5>
+                            <small style="color: var(--text-muted);">Verified Foodie &bull; Kollupitiya</small>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card reveal revealed">
+                    <div class="testimonial-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                    <p class="testimonial-text">"Hands down the best sourdough in Sri Lanka. The crust crackles like a dream and the crumb is delightfully soft and airy. My morning staple!"</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">A</div>
+                        <div>
+                            <h5 style="font-size: 0.95rem; margin-bottom: 2px;">Amaya Jayawardena</h5>
+                            <small style="color: var(--text-muted);">VIP Gold Member &bull; Cinnamon Gardens</small>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card reveal revealed">
+                    <div class="testimonial-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                    <p class="testimonial-text">"Our custom 3-tier wedding cake was stunning! The floral arrangement and delicate piping matched our theme down to the millimetre. Highly recommended!"</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">K</div>
+                        <div>
+                            <h5 style="font-size: 0.95rem; margin-bottom: 2px;">Kavinda &amp; Senuri</h5>
+                            <small style="color: var(--text-muted);">Wedding Event &bull; Battaramulla</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About & Bakery Heritage Section -->
+    <section class="catalog-section" id="about" style="background: var(--bg-surface-alt);">
+        <div class="container hero-grid" style="align-items: center;">
+            <div class="hero-image-card reveal">
+                <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?w=1000&auto=format&fit=crop&q=80" alt="Baking Bread">
+            </div>
+            <div class="hero-content reveal">
+                <div class="hero-pill"><i class="fa-solid fa-mortar-pestle"></i> Our Heritage</div>
+                <h2>Dedicated to the Time-Honored Art of Slow Baking</h2>
+                <p>
+                    Crumb was born out of a simple passion: to honor the rhythm of slow, honest baking. We never use artificial improvers, commercial stabilizers, or shortcuts. Every sourdough loaf is shaped by hand and cold-proved for 36 hours.
+                </p>
+                <p>
+                    Whether it's your daily morning baguette or a 5-tier wedding cake that turns heads, we pour our heart, craft, and artistry into every bake.
+                </p>
+                <div style="display: flex; gap: 1rem; margin-top: 1rem;">
+                    <div style="border-left: 3px solid var(--color-accent); padding-left: 1rem;">
+                        <h4 style="font-size: 1.1rem;">Fresh Daily</h4>
+                        <p style="font-size: 0.85rem;">Ovens fire up at 3:30 AM every single morning.</p>
+                    </div>
+                    <div style="border-left: 3px solid var(--color-accent); padding-left: 1rem;">
+                        <h4 style="font-size: 1.1rem;">Zero Preservatives</h4>
+                        <p style="font-size: 0.85rem;">Only real ingredients you can pronounce.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer" id="contacts">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="brand-logo" style="margin-bottom: 1rem;">
+                        <span class="brand-text" style="color: #FFFFFF;">Crumb<span style="color: var(--color-accent);">.</span></span>
+                    </div>
+                    <p>Artisan bakery crafting wild-yeast sourdoughs, classic French viennoiserie, and bespoke custom celebration cakes across Colombo, Sri Lanka.</p>
+                    <div style="display: flex; gap: 0.85rem; margin-top: 1.25rem;">
+                        <a href="https://instagram.com" target="_blank" rel="noopener" style="color: #D4C3B7; font-size: 1.2rem;"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="https://facebook.com" target="_blank" rel="noopener" style="color: #D4C3B7; font-size: 1.2rem;"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="https://youtube.com" target="_blank" rel="noopener" style="color: #D4C3B7; font-size: 1.2rem;"><i class="fa-brands fa-youtube"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#catalog">Artisan Bread &amp; Treats</a></li>
+                        <li><a href="#cake-builder">Custom Cake Builder</a></li>
+                        <li><a href="#tracking">Track Order Status</a></li>
+                        <li><a href="#about">Our Story</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Bakery Hours</h4>
+                    <ul class="footer-links" style="color: #D4C3B7; font-size: 0.88rem;">
+                        <li><strong>Mon – Fri:</strong> 6:30 AM – 7:00 PM</li>
+                        <li><strong>Saturday:</strong> 7:00 AM – 8:00 PM</li>
+                        <li><strong>Sunday:</strong> 7:30 AM – 5:00 PM</li>
+                        <li style="margin-top: 0.5rem; color: var(--color-accent);"><i class="fa-solid fa-truck"></i> Daily delivery dispatched from 8:00 AM</li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Bakery Locations</h4>
+                    <p><i class="fa-solid fa-location-dot" style="color: var(--color-accent);"></i> No. 42, Galle Road, Colombo 03, Sri Lanka</p>
+                    <p style="margin-top: 0.4rem;"><i class="fa-solid fa-location-dot" style="color: var(--color-accent);"></i> No. 18, Ward Place, Colombo 07</p>
+                    <p style="margin-top: 0.4rem;"><i class="fa-solid fa-location-dot" style="color: var(--color-accent);"></i> No. 125, Kandy Road, Battaramulla</p>
+                    <p style="margin-top: 0.6rem;"><i class="fa-solid fa-phone" style="color: var(--color-accent);"></i> Hotline: +94 (011) 234 5678 / Catering: +94 (072) 890 9091</p>
+                    <p style="margin-top: 0.4rem;"><i class="fa-solid fa-envelope" style="color: var(--color-accent);"></i> hello@crumb.lk</p>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <div>&copy; 2026 Crumb Artisan Bakery Platform. Group WD36.</div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating Elements -->
+    <!-- WhatsApp Chat Button -->
+    <a href="https://wa.me/94728909091" class="whatsapp-float whatsapp-link" aria-label="Chat on WhatsApp" target="_blank" rel="noopener">
+        <i class="fa-brands fa-whatsapp"></i>
+        <span class="whatsapp-tooltip">Chat with our pastry chef!</span>
+    </a>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="back-to-top-btn" aria-label="Back to top">
+        <i class="fa-solid fa-arrow-up"></i>
+    </button>
+
+    <!-- Toast Notification Container -->
+    <div id="toast-container"></div>
+
+    <!-- ==========================================================================
+         MODALS COLLECTION
+         ========================================================================== -->
+
+    <!-- 1. Auth Modal (Glassy Luxury Dialog with Swiping Segmented Control) -->
+    <div class="modal-overlay" id="auth-modal">
+        <div class="modal-dialog auth-modal-dialog">
+            <div class="modal-header auth-modal-header">
+                <!-- Swiping / Sliding Segmented Switcher in the Same Row -->
+                <div class="auth-segmented-switcher">
+                    <div class="auth-slider-pill" id="auth-slider-pill"></div>
+                    <button type="button" class="auth-tab-btn active" data-tab="login-tab">
+                        <i class="fa-solid fa-arrow-right-to-bracket"></i> Sign In
+                    </button>
+                    <button type="button" class="auth-tab-btn" data-tab="register-tab">
+                        <i class="fa-solid fa-sparkles"></i> Join Crumb
+                    </button>
+                </div>
+                <button class="modal-close" data-modal-close aria-label="Close">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+            
+            <div class="modal-body auth-modal-body">
+                <!-- Sign In Form -->
+                <div class="auth-tab-content" id="login-tab">
+                    <div class="auth-heading-group">
+                        <h3 class="auth-title">Welcome Back to Crumb</h3>
+                        <p class="auth-subtitle">Sign in to enjoy saved orders, member discounts, and instant checkout.</p>
+                    </div>
+
+                    <form id="login-form">
+                        <div class="form-group-glass">
+                            <label class="form-label" for="login-email">Email Address</label>
+                            <div class="input-icon-wrapper">
+                                <i class="fa-solid fa-envelope input-icon"></i>
+                                <input type="email" id="login-email" name="email" class="form-control" placeholder="you@domain.com" required autocomplete="email">
+                            </div>
+                        </div>
+                        <div class="form-group-glass">
+                            <label class="form-label" for="login-password">Password</label>
+                            <div class="input-icon-wrapper">
+                                <i class="fa-solid fa-lock input-icon"></i>
+                                <input type="password" id="login-password" name="password" class="form-control" placeholder="••••••••" required autocomplete="current-password">
+                                <button type="button" class="password-toggle-btn" data-target="login-password" aria-label="Toggle password visibility">
+                                    <i class="fa-regular fa-eye"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-lg auth-submit-btn">
+                            <i class="fa-solid fa-arrow-right-to-bracket"></i> Sign In to Crumb
+                        </button>
+                        
+                        <!-- Clickable Auto-Fill Pill for Admin Reviewers -->
+                        <div class="auth-demo-pill" id="fill-admin-btn" title="Click to auto-fill admin credentials">
+                            <i class="fa-solid fa-shield-halved"></i>
+                            <span>Admin Demo: <strong>admin@crumb.com</strong> / <strong>Admin@123</strong> (Click to auto-fill)</span>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Sign Up Form -->
+                <div class="auth-tab-content" id="register-tab" style="display: none;">
+                    <div class="auth-heading-group">
+                        <h3 class="auth-title">Create Your Crumb Account</h3>
+                        <p class="auth-subtitle">Order artisan hearth bakes and craft custom multi-tier celebration cakes.</p>
+                    </div>
+
+                    <form id="register-form">
+                        <div class="auth-form-grid">
+                            <div class="form-group-glass">
+                                <label class="form-label" for="reg-name">Full Name</label>
+                                <div class="input-icon-wrapper">
+                                    <i class="fa-solid fa-user input-icon"></i>
+                                    <input type="text" id="reg-name" name="fullName" class="form-control" placeholder="Sarah Jenkins" required autocomplete="name">
+                                </div>
+                            </div>
+                            <div class="form-group-glass">
+                                <label class="form-label" for="reg-email">Email Address</label>
+                                <div class="input-icon-wrapper">
+                                    <i class="fa-solid fa-envelope input-icon"></i>
+                                    <input type="email" id="reg-email" name="email" class="form-control" placeholder="sarah@domain.com" required autocomplete="email">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="auth-form-grid">
+                            <div class="form-group-glass">
+                                <label class="form-label" for="reg-phone">Phone Number</label>
+                                <div class="input-icon-wrapper">
+                                    <i class="fa-solid fa-phone input-icon"></i>
+                                    <input type="tel" id="reg-phone" name="phoneNumber" class="form-control" placeholder="+94 77 123 4567" required autocomplete="tel">
+                                </div>
+                            </div>
+                            <div class="form-group-glass">
+                                <label class="form-label" for="reg-address">Delivery Address</label>
+                                <div class="input-icon-wrapper">
+                                    <i class="fa-solid fa-location-dot input-icon"></i>
+                                    <input type="text" id="reg-address" name="deliveryAddress" class="form-control" placeholder="No. 42, Galle Road, Colombo 03" required autocomplete="street-address">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="auth-form-grid">
+                            <div class="form-group-glass">
+                                <label class="form-label" for="reg-password">Password</label>
+                                <div class="input-icon-wrapper">
+                                    <i class="fa-solid fa-lock input-icon"></i>
+                                    <input type="password" id="reg-password" name="password" class="form-control" placeholder="At least 6 characters" required autocomplete="new-password">
+                                    <button type="button" class="password-toggle-btn" data-target="reg-password" aria-label="Toggle password visibility">
+                                        <i class="fa-regular fa-eye"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="form-group-glass">
+                                <label class="form-label" for="reg-confirm-password">Confirm Password</label>
+                                <div class="input-icon-wrapper">
+                                    <i class="fa-solid fa-shield-check input-icon"></i>
+                                    <input type="password" id="reg-confirm-password" name="confirmPassword" class="form-control" placeholder="Repeat password" required autocomplete="new-password">
+                                    <button type="button" class="password-toggle-btn" data-target="reg-confirm-password" aria-label="Toggle password visibility">
+                                        <i class="fa-regular fa-eye"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- VIP Gold Tier Option Card -->
+                        <div class="vip-option-card">
+                            <input type="checkbox" name="vipOptIn" id="vip-opt-checkbox" class="vip-checkbox">
+                            <label for="vip-opt-checkbox" class="vip-option-label">
+                                <div class="vip-crown-badge"><i class="fa-solid fa-crown"></i></div>
+                                <div class="vip-info">
+                                    <div class="vip-name">VIP Gold Membership <span class="badge badge-gold">Complimentary</span></div>
+                                    <div class="vip-desc">Free white-glove delivery &amp; 10% instant discount on every single order.</div>
+                                </div>
+                                <div class="vip-toggle-check"><i class="fa-solid fa-check"></i></div>
+                            </label>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary btn-lg auth-submit-btn">
+                            <i class="fa-solid fa-sparkles"></i> Create My Account
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 2. Profile & Account Modal -->
+    <div class="modal-overlay" id="profile-modal">
+        <div class="modal-dialog">
+            <div class="modal-header">
+                <h3 class="modal-title">My Bakery Account</h3>
+                <button class="modal-close" data-modal-close>&times;</button>
+            </div>
+            <div class="modal-body">
+                <div id="profile-customer-id" style="margin-bottom: 0.85rem;"></div>
+                <div style="margin-bottom: 1.5rem;" id="profile-tier-badge">
+                    <!-- Populated dynamically -->
+                </div>
+
+                <!-- VIP Upgrade Promotion Banner -->
+                <div id="profile-vip-upgrade-box" style="display: none; background: var(--color-accent-light); padding: 1rem; border-radius: var(--radius-md); margin-bottom: 1.5rem;">
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <div>
+                            <h5 style="color: #8C4F13; margin-bottom: 2px;">Unlock VIP Gold Perks</h5>
+                            <p style="font-size: 0.82rem; color: #5C2C16;">Get 10% off all orders, waived delivery fees, and priority oven queue!</p>
+                        </div>
+                        <button class="btn btn-accent btn-sm" id="upgrade-vip-btn">
+                            <i class="fa-solid fa-crown"></i> Upgrade
+                        </button>
+                    </div>
+                </div>
+
+                <form id="profile-form">
+                    <div class="form-group">
+                        <label class="form-label" for="prof-name">Full Name</label>
+                        <input type="text" id="prof-name" name="fullName" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="prof-email">Email (Immutable)</label>
+                        <input type="email" id="prof-email" name="email" class="form-control" disabled style="opacity: 0.6;">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="prof-phone">Phone Number</label>
+                        <input type="tel" id="prof-phone" name="phoneNumber" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="prof-address">Default Delivery Address</label>
+                        <input type="text" id="prof-address" name="deliveryAddress" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="prof-password">New Password (leave blank to keep current)</label>
+                        <input type="password" id="prof-password" name="password" class="form-control" placeholder="••••••••">
+                    </div>
+                    <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 1rem;">
+                        <i class="fa-solid fa-floppy-disk"></i> Save Profile Changes
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- 3. Quick-View Product Modal -->
+    <div class="modal-overlay" id="quick-view-modal">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-header">
+                <h3 class="modal-title" id="qv-title">Product Details</h3>
+                <button class="modal-close" data-modal-close>&times;</button>
+            </div>
+            <div class="modal-body" style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
+                <div>
+                    <img id="qv-img" src="" alt="Product" style="border-radius: var(--radius-lg); width: 100%; height: 320px; object-fit: cover; box-shadow: var(--shadow-md);">
+                </div>
+                <div style="display: flex; flex-direction: column; gap: 0.75rem;">
+                    <div>
+                        <span class="badge badge-cake" id="qv-category">Cake</span>
+                    </div>
+                    <p id="qv-desc" style="font-size: 0.92rem;"></p>
+                    
+                    <div style="background: var(--bg-surface-alt); padding: 0.85rem; border-radius: var(--radius-md); font-size: 0.82rem; display: flex; flex-direction: column; gap: 0.35rem;">
+                        <div><strong>Allergens:</strong> <span id="qv-allergens"></span></div>
+                        <div><strong>Storage:</strong> <span id="qv-storage"></span></div>
+                        <div><strong>Portions:</strong> <span id="qv-serving"></span></div>
+                    </div>
+
+                    <!-- Volume discount alert -->
+                    <div style="background: var(--color-accent-light); color: #8C4F13; padding: 0.5rem 0.8rem; border-radius: var(--radius-sm); font-size: 0.82rem; font-weight: 600;" id="qv-discount-note">
+                        Volume discount available on multi-item orders!
+                    </div>
+
+                    <div style="display: flex; align-items: center; justify-content: space-between; margin-top: auto; padding-top: 1rem; border-top: 1px solid var(--border-subtle);">
+                        <div>
+                            <small style="color: var(--text-muted); display: block;">Unit Price:</small>
+                            <span class="product-price" id="qv-price">$0.00</span>
+                        </div>
+                        <div style="display: flex; align-items: center; gap: 0.5rem;">
+                            <label for="qv-qty-input" style="font-size: 0.85rem; font-weight: 600;">Qty:</label>
+                            <input type="number" id="qv-qty-input" value="1" min="1" max="50" class="form-control" style="width: 70px; padding: 0.4rem 0.6rem; text-align: center;">
+                        </div>
+                    </div>
+
+                    <div style="display: flex; align-items: center; justify-content: space-between;">
+                        <span style="font-weight: 700;">Calculated Total:</span>
+                        <span class="product-price" id="qv-total-price" style="color: var(--color-accent); font-size: 1.5rem;">$0.00</span>
+                    </div>
+
+                    <button class="btn btn-primary" id="qv-add-cart-btn" style="width: 100%;">
+                        <i class="fa-solid fa-cart-plus"></i> Add to Cart
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 4. Slide-Over Cart Drawer -->
+    <div class="cart-drawer-overlay" id="cart-drawer-overlay">
+        <div class="cart-drawer">
+            <div class="cart-header">
+                <div style="display: flex; align-items: center; gap: 0.65rem;">
+                    <i class="fa-solid fa-basket-shopping" style="color: var(--color-accent); font-size: 1.3rem;"></i>
+                    <h4 style="font-size: 1.25rem;">Your Fresh Basket</h4>
+                </div>
+                <button class="modal-close" id="close-cart-btn">&times;</button>
+            </div>
+
+            <div class="cart-items-body" id="cart-drawer-items">
+                <!-- Dynamically populated via product.js -->
+            </div>
+
+            <div class="cart-footer">
+                <!-- VIP Savings Banner -->
+                <div class="vip-savings-banner" id="cart-vip-banner" style="display: none;">
+                    <i class="fa-solid fa-crown"></i> VIP Gold Member 10% Discount Applied!
+                </div>
+
+                <div style="display: flex; justify-content: space-between; font-size: 0.95rem;">
+                    <span>Subtotal</span>
+                    <span style="font-weight: 700;" id="cart-subtotal">$0.00</span>
+                </div>
+
+                <div style="display: none; justify-content: space-between; font-size: 0.95rem; color: var(--color-accent);" id="cart-vip-discount-row">
+                    <span>VIP 10% Discount</span>
+                    <span style="font-weight: 700;" id="cart-vip-discount-val">-$0.00</span>
+                </div>
+
+                <div style="display: flex; justify-content: space-between; font-size: 1.25rem; font-weight: 800; border-top: 1px solid var(--border-color); padding-top: 0.75rem;">
+                    <span>Estimated Total</span>
+                    <span style="color: var(--color-primary);" id="cart-final-total">$0.00</span>
+                </div>
+
+                <button class="btn btn-primary btn-lg" id="cart-checkout-btn" style="width: 100%;">
+                    <i class="fa-solid fa-bag-shopping"></i> Proceed to Checkout
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 5. Multi-Step Checkout Modal -->
+    <div class="modal-overlay" id="checkout-modal">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-header">
+                <h3 class="modal-title">Bakery Checkout</h3>
+                <button class="modal-close" data-modal-close>&times;</button>
+            </div>
+            <div class="modal-body">
+                <!-- Fulfillment Method -->
+                <h5 style="margin-bottom: 0.6rem;">1. Select Fulfillment Method</h5>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1.5rem;">
+                    <button class="btn btn-outline fulfillment-toggle-btn active" data-method="DELIVERY">
+                        <i class="fa-solid fa-truck"></i> Doorstep Delivery
+                    </button>
+                    <button class="btn btn-outline fulfillment-toggle-btn" data-method="PICKUP">
+                        <i class="fa-solid fa-store"></i> Bakery Pickup
+                    </button>
+                </div>
+
+                <!-- Schedule Delivery Date & Time Slot -->
+                <h5 style="margin-bottom: 0.6rem;">2. Delivery Date &amp; Time Slot</h5>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1.5rem;">
+                    <div class="form-group">
+                        <label class="form-label" for="checkout-date">Preferred Date</label>
+                        <input type="date" id="checkout-date" class="form-control booking-date-picker" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="checkout-slot">Kitchen Time Slot</label>
+                        <select id="checkout-slot" class="form-select">
+                            <option value="10:00 AM - 12:00 PM">10:00 AM - 12:00 PM (Morning Peak)</option>
+                            <option value="02:00 PM - 04:00 PM">02:00 PM - 04:00 PM (Tea Time Batch)</option>
+                            <option value="04:00 PM - 06:00 PM">04:00 PM - 06:00 PM (Evening Delivery)</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Contact & Address -->
+                <h5 style="margin-bottom: 0.6rem;">3. Recipient Details</h5>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                    <div class="form-group">
+                        <label class="form-label" for="checkout-name">Recipient Name</label>
+                        <input type="text" id="checkout-name" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="checkout-phone">Phone Number</label>
+                        <input type="tel" id="checkout-phone" class="form-control" required>
+                    </div>
+                </div>
+                <div class="form-group" id="checkout-address-group">
+                    <label class="form-label" for="checkout-address">Delivery Address</label>
+                    <input type="text" id="checkout-address" class="form-control" placeholder="Street, Apartment, City">
+                </div>
+                <div class="form-group">
+                    <label class="form-label" for="checkout-notes">Kitchen Notes / Special Request</label>
+                    <input type="text" id="checkout-notes" class="form-control" placeholder="e.g. Leave with security, extra napkins, gift message...">
+                </div>
+
+                <!-- Payment Method -->
+                <h5 style="margin-bottom: 0.6rem; margin-top: 1.25rem;">4. Payment Settlement</h5>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1.25rem;">
+                    <div class="cake-type-card payment-method-card active" data-payment="CARD" style="padding: 0.85rem;">
+                        <i class="fa-solid fa-credit-card"></i>
+                        <h5>Credit / Debit Card</h5>
+                        <small style="color: var(--text-muted);">Instant Secure Processing</small>
+                    </div>
+                    <div class="cake-type-card payment-method-card" data-payment="CASH" style="padding: 0.85rem;">
+                        <i class="fa-solid fa-money-bill-wave"></i>
+                        <h5>Cash on Delivery / Pickup</h5>
+                        <small style="color: var(--text-muted);">Pay upon handoff</small>
+                    </div>
+                </div>
+
+                <!-- Card Details Form (shown if CARD selected) -->
+                <div id="card-details-fields" style="background: var(--bg-surface-alt); padding: 1.25rem; border-radius: var(--radius-md); margin-bottom: 1.5rem; border: 1px solid var(--border-color);">
+                    <div class="form-group">
+                        <label class="form-label" for="card-holder-name">Cardholder Name</label>
+                        <input type="text" id="card-holder-name" class="form-control" placeholder="Sarah Jenkins" value="Sarah Jenkins">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="card-number-input">Card Number</label>
+                        <input type="text" id="card-number-input" class="form-control" placeholder="4242 •••• •••• 4242" value="4242 4242 4242 4242" maxlength="19">
+                    </div>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                        <div class="form-group">
+                            <label class="form-label" for="card-exp">Expiry (MM/YY)</label>
+                            <input type="text" id="card-exp" class="form-control" placeholder="12/28" value="12/28" maxlength="5">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="card-cvv">CVV</label>
+                            <input type="password" id="card-cvv" class="form-control" placeholder="888" value="888" maxlength="4">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Order Item Summary & Final Breakdown -->
+                <div style="background: var(--bg-surface-alt); padding: 1.25rem; border-radius: var(--radius-md); border: 1px solid var(--border-color);">
+                    <h5 style="margin-bottom: 0.75rem;">Order Summary</h5>
+                    <div id="checkout-items-summary" style="margin-bottom: 0.75rem;"></div>
+                    <div style="border-top: 1px solid var(--border-subtle); padding-top: 0.5rem; display: flex; justify-content: space-between; font-size: 0.9rem;">
+                        <span>Subtotal:</span>
+                        <span id="checkout-subtotal-val">$0.00</span>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; font-size: 0.9rem; color: var(--color-accent);">
+                        <span>VIP Discount:</span>
+                        <span id="checkout-discount-val">$0.00</span>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; font-size: 0.9rem;" id="checkout-delivery-fee-row">
+                        <span>Delivery Fee:</span>
+                        <span id="checkout-delivery-val">LKR 450.00</span>
+                    </div>
+                    <div style="border-top: 1px solid var(--border-color); padding-top: 0.6rem; margin-top: 0.6rem; display: flex; justify-content: space-between; font-size: 1.3rem; font-weight: 800;">
+                        <span>Grand Total:</span>
+                        <span style="color: var(--color-primary);" id="checkout-total-val">$0.00</span>
+                    </div>
+                </div>
+
+                <button class="btn btn-primary btn-lg" id="place-order-btn" style="width: 100%; margin-top: 1.5rem;">
+                    <i class="fa-solid fa-bag-shopping"></i> Complete &amp; Place Order
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 6. Order Receipt Modal -->
+    <div class="modal-overlay" id="order-receipt-modal">
+        <div class="modal-dialog">
+            <div class="modal-header">
+                <h3 class="modal-title">🎉 Order Confirmed!</h3>
+                <button class="modal-close" data-modal-close>&times;</button>
+            </div>
+            <div class="modal-body" id="receipt-printable-area">
+                <div style="text-align: center; margin-bottom: 1.5rem;">
+                    <i class="fa-solid fa-circle-check" style="font-size: 3.5rem; color: var(--state-success); margin-bottom: 0.5rem;"></i>
+                    <h4>Thank You For Your Order!</h4>
+                    <p style="font-size: 0.9rem;">Your treats have entered our artisan baking queue.</p>
+                </div>
+
+                <div style="background: var(--bg-surface-alt); padding: 1.25rem; border-radius: var(--radius-md); font-size: 0.88rem; line-height: 1.6; border: 1px solid var(--border-color);">
+                    <div><strong>Order Code:</strong> <span id="receipt-order-no" style="font-family: monospace; color: var(--color-primary); font-weight: 700;"></span></div>
+                    <div><strong>Date:</strong> <span id="receipt-date"></span></div>
+                    <div><strong>Customer:</strong> <span id="receipt-customer-name"></span></div>
+                    <div><strong>Fulfillment:</strong> <span id="receipt-fulfillment"></span></div>
+                    <div><strong>Address:</strong> <span id="receipt-address"></span></div>
+                    
+                    <table style="width: 100%; margin-top: 1rem; border-top: 1px solid var(--border-color); padding-top: 0.5rem;">
+                        <thead>
+                            <tr style="text-align: left; font-size: 0.8rem; color: var(--text-muted);">
+                                <th>Item</th>
+                                <th style="text-align: center;">Qty</th>
+                                <th style="text-align: right;">Amount</th>
+                            </tr>
+                        </thead>
+                        <tbody id="receipt-items-body"></tbody>
+                    </table>
+
+                    <div style="display: flex; justify-content: space-between; font-size: 1.15rem; font-weight: 800; border-top: 1px solid var(--border-color); padding-top: 0.75rem; margin-top: 0.75rem;">
+                        <span>Total Paid:</span>
+                        <span id="receipt-total" style="color: var(--color-primary);">$0.00</span>
+                    </div>
+                </div>
+
+                <div style="display: flex; gap: 0.75rem; margin-top: 1.5rem;">
+                    <button class="btn btn-outline" style="flex: 1;" onclick="window.print()">
+                        <i class="fa-solid fa-print"></i> Print Invoice
+                    </button>
+                    <button class="btn btn-primary" style="flex: 1;" data-modal-close>
+                        Continue Exploring
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 7. Custom Cake Success Confirmation Modal -->
+    <div class="modal-overlay" id="cake-success-modal">
+        <div class="modal-dialog">
+            <div class="modal-header">
+                <h3 class="modal-title">🎂 Custom Cake Booked!</h3>
+                <button class="modal-close" data-modal-close>&times;</button>
+            </div>
+            <div class="modal-body" style="text-align: center;">
+                <i class="fa-solid fa-wand-magic-sparkles" style="font-size: 3.5rem; color: var(--color-accent); margin-bottom: 0.75rem;"></i>
+                <h4>Your Bespoke Request Is Received</h4>
+                <p style="font-size: 0.92rem; color: var(--text-secondary); margin-bottom: 1.5rem;">
+                    Our master decorator has logged your specifications. You will receive an SMS and email update once production begins!
+                </p>
+
+                <div style="background: var(--bg-surface-alt); padding: 1.25rem; border-radius: var(--radius-md); text-align: left; font-size: 0.9rem; line-height: 1.8; border: 1px solid var(--border-color);">
+                    <div><strong>Reference:</strong> <span id="cake-conf-ref" style="font-family: monospace; color: var(--color-primary); font-weight: 700;"></span></div>
+                    <div><strong>Style:</strong> <span id="cake-conf-type"></span></div>
+                    <div><strong>Flavor:</strong> <span id="cake-conf-flavor"></span></div>
+                    <div><strong>Tiers:</strong> <span id="cake-conf-tiers"></span></div>
+                    <div><strong>Required By:</strong> <span id="cake-conf-date"></span></div>
+                    <div style="border-top: 1px solid var(--border-color); margin-top: 0.5rem; padding-top: 0.5rem; display: flex; justify-content: space-between; font-weight: 800; font-size: 1.1rem;">
+                        <span>Estimated Total:</span>
+                        <span id="cake-conf-price" style="color: var(--color-primary);">$0.00</span>
+                    </div>
+                </div>
+
+                <button class="btn btn-primary" style="width: 100%; margin-top: 1.5rem;" data-modal-close>
+                    Return to Storefront
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 8. Review Submission Modal -->
+    <div class="modal-overlay" id="review-modal">
+        <div class="modal-dialog">
+            <div class="modal-header">
+                <h3 class="modal-title">Share Your Experience</h3>
+                <button class="modal-close" data-modal-close>&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="submit-review-form">
+                    <div class="form-group" style="text-align: center; margin-bottom: 1.5rem;">
+                        <label class="form-label" style="display: block; margin-bottom: 0.5rem;">Your Star Rating</label>
+                        <div class="star-rating-select" style="font-size: 2rem; cursor: pointer; display: flex; justify-content: center; gap: 0.5rem;">
+                            <i class="fa-solid fa-star" data-val="1"></i>
+                            <i class="fa-solid fa-star" data-val="2"></i>
+                            <i class="fa-solid fa-star" data-val="3"></i>
+                            <i class="fa-solid fa-star" data-val="4"></i>
+                            <i class="fa-solid fa-star" data-val="5"></i>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label" for="review-product-select">Select Treat (Optional)</label>
+                        <select id="review-product-select" class="form-select">
+                            <option value="1">Triple Belgian Chocolate Fudge Cake</option>
+                            <option value="2">Madagascan Vanilla Bean Sponge</option>
+                            <option value="3">Salted Caramel Lotus Cake</option>
+                            <option value="5">Artisan Butter Croissant</option>
+                            <option value="9">Country Sourdough Loaf</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label" for="review-comment">Review Feedback</label>
+                        <textarea id="review-comment" name="comment" class="form-control" placeholder="What did you love most about the crumb texture, aroma, or presentation?" required rows="4"></textarea>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 1rem;">
+                        <i class="fa-solid fa-paper-plane"></i> Submit Feedback
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript Prototype Scripts (Version 1: Static UI prototype before backend integration) -->
+    <script src="/js/common.js"></script>
+</body>
+</html>

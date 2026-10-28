@@ -8,11 +8,6 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-/**
- * OrderItem - Line item entity representing an individual product and quantity within an order.
- * 
- * WHY: Maintains historical unit price at the time of purchase and links to the BakeryProduct.
- */
 @Entity
 @Table(name = "order_items")
 @Getter

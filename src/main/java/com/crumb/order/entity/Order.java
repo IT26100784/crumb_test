@@ -12,19 +12,6 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Order - Abstract Base Entity representing a retail bakery order.
- * 
- * // ABSTRACTION:
- * Defines common order attributes (items, subtotal, discount, totals, status)
- * and declares abstract polymorphic fulfillment methods implemented by DeliveryOrder and PickupOrder.
- * 
- * // INHERITANCE:
- * Uses JPA SINGLE_TABLE inheritance with discriminator column "order_type".
- * Both DeliveryOrder and PickupOrder records share the "orders" table.
- */
-// ABSTRACTION
-// INHERITANCE
 @Entity
 @Table(name = "orders")
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
@@ -35,9 +22,6 @@ import java.util.List;
 @AllArgsConstructor
 public abstract class Order {
 
-    // // ENCAPSULATION:
-    // All attributes are private. Access is mediated by Lombok-generated getters and setters.
-    // ENCAPSULATION
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -82,26 +66,14 @@ public abstract class Order {
         item.setOrder(this);
     }
 
-    /**
-     * // POLYMORPHISM:
-     * Calculates delivery / logistics fees for this order type.
-     * Delivery orders compute courier distance fees (minus VIP discount),
-     * while Pickup orders always return 0.0.
-     */
-    // POLYMORPHISM
+    /*
+    Calculates delivery / logistics fees for this order type.
+    Delivery orders compute courier distance fees (minus VIP discount),
+    while Pickup orders always return 0.0.
+    */
     public abstract double calculateDeliveryFee();
 
-    /**
-     * // POLYMORPHISM:
-     * Returns a human-readable fulfillment summary (dispatch address vs store pickup counter).
-     */
-    // POLYMORPHISM
     public abstract String getDeliverySummary();
 
-    /**
-     * // POLYMORPHISM:
-     * Returns estimated preparation and dispatch timing.
-     */
-    // POLYMORPHISM
     public abstract String getFulfillmentTimeEstimate();
 }

@@ -7,15 +7,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-/**
- * DeliveryOrder - Entity representing orders dispatched via courier to a customer's address.
- * 
- * // INHERITANCE:
- * Subclasses Order with order_type = 'DELIVERY'.
- * 
- * // POLYMORPHISM:
- * Implements courier delivery fee calculation with distance tiering and VIP customer fee waivers.
- */
+
 // INHERITANCE
 @Entity
 @DiscriminatorValue("DELIVERY")

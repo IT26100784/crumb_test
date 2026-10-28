@@ -6,16 +6,12 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-/**
- * OrderItemResponse - Output presentation for a purchased product line item.
- */
 @Data
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
 public class OrderItemResponse {
 
-    // ENCAPSULATION: private fields with getters/setters
     private Long id;
     private Long productId;
     private String productName;

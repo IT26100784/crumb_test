@@ -1,0 +1,97 @@
+/* ==========================================================================
+   CRUMB - ARTISAN BAKERY DESIGN SYSTEM & THEME TOKENS
+   Inspired by Dark Editorial Artisan Aesthetics:
+   Deep Charcoal/Matte Black, Crisp Off-White, Warm Golden Caramel/Copper
+   ========================================================================== */
+
+:root {
+    /* Brand Primary & Accents (Copper, Amber, Caramel) */
+    --color-accent: #D69055;             /* Warm Artisan Caramel Gold */
+    --color-accent-hover: #E59F64;       /* Radiant Amber */
+    --color-accent-dark: #BA753D;        /* Deep Roasted Copper */
+    --color-accent-light: rgba(214, 144, 85, 0.14); /* Subtle Amber Glaze */
+    --color-accent-glow: rgba(214, 144, 85, 0.35);
+
+    /* Backgrounds & Surfaces (Default Moody Dark Editorial Vibe) */
+    --bg-page: #141414;                  /* Deep Matte Charcoal Black */
+    --bg-header: rgba(20, 20, 20, 0.94); /* Header Glass Backdrop */
+    --bg-topbar: #181818;                /* Top Utility Bar */
+    --bg-surface: #1C1C1C;               /* Dark Slate Card Surface */
+    --bg-surface-alt: #232323;           /* Elevated Card / Panel */
+    --bg-surface-elevated: #282828;      /* Modal / Drawer Surface */
+    --bg-overlay: rgba(8, 8, 8, 0.82);   /* Dark Backdrop Overlay */
+    
+    /* Typography Colors */
+    --text-primary: #FFFFFF;             /* Crisp Pure White */
+    --text-secondary: #C4C0B8;           /* Warm Sand / Muted Dough */
+    --text-muted: #827E78;               /* Dusty Flour Charcoal */
+    --text-inverse: #141414;             /* Dark on Light */
+    --text-script: #D69055;              /* Caramel for Cursive Scripts */
+    
+    /* Borders & Dividers */
+    --border-color: rgba(255, 255, 255, 0.1);  /* Delicate Frosted Border */
+    --border-subtle: rgba(255, 255, 255, 0.06);/* Very Soft Separator */
+    --border-focus: #D69055;             /* Copper Glow */
+    
+    /* Feedback States */
+    --state-success: #4CAF50;
+    --state-success-bg: rgba(76, 175, 80, 0.15);
+    --state-warning: #FF9800;
+    --state-warning-bg: rgba(255, 152, 0, 0.15);
+    --state-error: #F44336;
+    --state-error-bg: rgba(244, 67, 54, 0.15);
+    --state-info: #2196F3;
+    --state-info-bg: rgba(33, 150, 243, 0.15);
+    
+    /* Shadows */
+    --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.35);
+    --shadow-md: 0 6px 20px rgba(0, 0, 0, 0.5);
+    --shadow-lg: 0 14px 38px rgba(0, 0, 0, 0.65);
+    --shadow-xl: 0 24px 60px rgba(0, 0, 0, 0.8);
+    
+    /* Border Radius */
+    --radius-sm: 6px;
+    --radius-md: 12px;
+    --radius-lg: 18px;
+    --radius-xl: 26px;
+    --radius-full: 9999px;
+    
+    /* Fonts */
+    --font-heading: 'Playfair Display', Georgia, serif;
+    --font-script: 'Alex Brush', 'Cormorant Garamond', 'Playfair Display', cursive, serif;
+    --font-body: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    
+    /* Transitions */
+    --transition-fast: 0.18s ease;
+    --transition-normal: 0.28s ease;
+    --transition-slow: 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+    
+    /* Social & WhatsApp */
+    --whatsapp-color: #25D366;
+    --whatsapp-hover: #20BD5A;
+}
+
+/* Optional Light Mode Override (if user toggles to light mode) */
+[data-theme="light"] {
+    --bg-page: #FBF8F3;                  /* Warm Clotted Cream */
+    --bg-header: rgba(251, 248, 243, 0.94);
+    --bg-topbar: #F3ECE1;
+    --bg-surface: #FFFFFF;
+    --bg-surface-alt: #F6EFE5;
+    --bg-surface-elevated: #FFFFFF;
+    --bg-overlay: rgba(35, 25, 20, 0.7);
+
+    --text-primary: #1F1916;             /* Dark Espresso */
+    --text-secondary: #63574E;
+    --text-muted: #9C8E84;
+    --text-inverse: #FFFFFF;
+    --text-script: #BA753D;
+
+    --border-color: rgba(31, 25, 22, 0.12);
+    --border-subtle: rgba(31, 25, 22, 0.06);
+    --border-focus: #D69055;
+
+    --shadow-sm: 0 2px 8px rgba(31, 25, 22, 0.06);
+    --shadow-md: 0 6px 20px rgba(31, 25, 22, 0.1);
+    --shadow-lg: 0 14px 38px rgba(31, 25, 22, 0.14);
+}
